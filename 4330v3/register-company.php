@@ -72,23 +72,23 @@ require_once("db.php");
                 <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" required>
               </div>
               <div class="form-group">
-                <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required>
-              </div>
-              <div class="form-group">
-                <input class="form-control input-lg" type="text" name="website" placeholder="Website">
-              </div>
-              <div class="form-group">
                 <input class="form-control input-lg" type="text" name="email" placeholder="Email" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control input-lg" rows="4" name="aboutme" placeholder="Brief info about your company"></textarea>
-              </div>
-              <div class="form-group checkbox">
-                <label><input type="checkbox" required> I accept terms & conditions</label>
+                <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required>
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-flat btn-success">Register</button>
+                <input class="form-control input-lg" type="text" name="companypassword" placeholder="Company Password" required>
               </div>
+              <!-- <div class="form-group">
+                <input class="form-control input-lg" type="text" name="website" placeholder="Website">
+              </div> -->
+              <!-- <div class="form-group">
+                <textarea class="form-control input-lg" rows="4" name="aboutme" placeholder="Brief info about your company"></textarea>
+              </div> -->
+              <!-- <div class="form-group checkbox">
+                <label><input type="checkbox" required> I accept terms & conditions</label>
+              </div> -->
               <?php
               //If Company already registered with this email then show error message.
               if(isset($_SESSION['registerError'])) {
@@ -116,9 +116,9 @@ require_once("db.php");
               <div class="form-group">
                 <input class="form-control input-lg" type="password" name="cpassword" placeholder="Confirm Password" required>
               </div>
-               <div id="passwordError" class="btn btn-flat btn-danger hide-me" >
+               <!-- <div id="passwordError" class="btn btn-flat btn-danger hide-me" >
                     Password Mismatch!!
-                  </div>
+               </div> -->
               <div class="form-group">
                 <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required>
               </div>
@@ -151,6 +151,9 @@ require_once("db.php");
               <div class="form-group">
                 <label>Attach Company Logo</label>
                 <input type="file" name="image" class="form-control input-lg" required>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-flat btn-success">Register</button>
               </div>
             </div>
           </form>
