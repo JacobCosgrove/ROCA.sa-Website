@@ -1,0 +1,220 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 14, 2020 at 05:04 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `4330project`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id_admin` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_admin`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apply_job_post`
+--
+
+DROP TABLE IF EXISTS `apply_job_post`;
+CREATE TABLE IF NOT EXISTS `apply_job_post` (
+  `id_apply` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jobpost` int(11) NOT NULL,
+  `id_company` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_apply`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `state_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=48315 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE IF NOT EXISTS `company` (
+  `id_company` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `companyname` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `contactno` varchar(255) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `aboutme` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `active` int(11) NOT NULL DEFAULT 2,
+  PRIMARY KEY (`id_company`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+DROP TABLE IF EXISTS `countries`;
+CREATE TABLE IF NOT EXISTS `countries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sortname` varchar(3) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `phonecode` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_post`
+--
+
+DROP TABLE IF EXISTS `job_post`;
+CREATE TABLE IF NOT EXISTS `job_post` (
+  `id_jobpost` int(11) NOT NULL AUTO_INCREMENT,
+  `id_company` int(11) NOT NULL,
+  `jobtitle` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `minimumsalary` varchar(255) NOT NULL,
+  `maximumsalary` varchar(255) NOT NULL,
+  `experience` varchar(255) NOT NULL,
+  `qualification` varchar(255) NOT NULL,
+  `createdat` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_jobpost`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mailbox`
+--
+
+DROP TABLE IF EXISTS `mailbox`;
+CREATE TABLE IF NOT EXISTS `mailbox` (
+  `id_mailbox` int(11) NOT NULL AUTO_INCREMENT,
+  `id_fromuser` int(11) NOT NULL,
+  `fromuser` varchar(255) NOT NULL,
+  `id_touser` int(11) NOT NULL,
+  `subject` varchar(256) NOT NULL,
+  `message` text NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_mailbox`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reply_mailbox`
+--
+
+DROP TABLE IF EXISTS `reply_mailbox`;
+CREATE TABLE IF NOT EXISTS `reply_mailbox` (
+  `id_reply` int(11) NOT NULL,
+  `id_mailbox` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `usertype` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `states`
+--
+
+DROP TABLE IF EXISTS `states`;
+CREATE TABLE IF NOT EXISTS `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `country_id` int(11) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4121 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `address` text DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `contactno` varchar(255) DEFAULT NULL,
+  `qualification` varchar(255) DEFAULT NULL,
+  `stream` varchar(255) DEFAULT NULL,
+  `passingyear` varchar(255) DEFAULT NULL,
+  `dob` varchar(255) DEFAULT NULL,
+  `age` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `resume` varchar(255) DEFAULT NULL,
+  `hash` varchar(255) DEFAULT NULL,
+  `active` int(11) NOT NULL DEFAULT 1,
+  `aboutme` text NOT NULL,
+  `skills` text DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `firstname`, `lastname`, `email`, `password`, `address`, `city`, `state`, `contactno`, `qualification`, `stream`, `passingyear`, `dob`, `age`, `designation`, `resume`, `hash`, `active`, `aboutme`, `skills`) VALUES
+(15, 'Jacob', 'Cosgrove', 'jacobntx@gmail.com', 'ZTA5YmY1ODJkMmU4YmM0MzhkYjk0NDAzYzU5ZTBjMWQ=', '', '', '', '', '', '', '', '', '', '', '5e9534f1daf72.pdf', '9ce00d1f87299fd3d18b4398a4cb337f', 1, 'Hello', '');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
