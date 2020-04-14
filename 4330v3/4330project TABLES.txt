@@ -76,7 +76,6 @@ DROP TABLE IF EXISTS `company`;
 CREATE TABLE IF NOT EXISTS `company` (
   `id_company` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `companyname` varchar(255) NOT NULL,
   `country` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
