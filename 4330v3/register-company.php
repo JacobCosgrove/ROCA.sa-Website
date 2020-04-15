@@ -65,7 +65,7 @@ require_once("db.php");
     <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-          <h1 class="text-center margin-bottom-20">CREATE COMPANY PROFILE</h1>
+          <h1 class="text-center margin-bottom-20">CREATE RECRUITER PROFILE</h1>
           <form method="post" id="registerCompanies" action="addcompany.php" enctype="multipart/form-data">
             <div class="col-md-6 latest-job ">
               <div class="form-group">
@@ -77,9 +77,9 @@ require_once("db.php");
               <div class="form-group">
                 <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" name="companypassword" placeholder="Company Password" required>
-              </div>
+              </div> -->
               <!-- <div class="form-group">
                 <input class="form-control input-lg" type="text" name="website" placeholder="Website">
               </div> -->
@@ -122,22 +122,22 @@ require_once("db.php");
               <div class="form-group">
                 <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <select class="form-control  input-lg" id="country" name="country" required>
                 <option selected="" value="">Select Country</option>
                 <?php
-                  $sql="SELECT * FROM countries";
-                  $result=$conn->query($sql);
-
-                  if($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                      echo "<option value='".$row['name']."' data-id='".$row['id']."'>".$row['name']."</option>";
-                    }
-                  }
+                  // $sql="SELECT * FROM countries";
+                  // $result=$conn->query($sql);
+                  //
+                  // if($result->num_rows > 0) {
+                  //   while($row = $result->fetch_assoc()) {
+                  //     echo "<option value='".$row['name']."' data-id='".$row['id']."'>".$row['name']."</option>";
+                  //   }
+                  // }
                 ?>
 
                 </select>
-              </div>
+              </div> -->
               <div id="stateDiv" class="form-group" style="display: none;">
                 <select class="form-control  input-lg" id="state" name="state" required>
                   <option value="" selected="">Select State</option>
@@ -148,12 +148,12 @@ require_once("db.php");
                   <option selected="">Select City</option>
                 </select>
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>Attach Company Logo</label>
                 <input type="file" name="image" class="form-control input-lg" required>
-              </div>
+              </div> -->
               <div class="form-group">
-                <button type="submit" class="btn btn-flat btn-success">Register</button>
+                <button class="btn btn-flat btn-success">Register</button>
               </div>
             </div>
           </form>

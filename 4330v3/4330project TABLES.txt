@@ -212,6 +212,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id_user`, `firstname`, `lastname`, `email`, `password`, `address`, `city`, `state`, `contactno`, `qualification`, `stream`, `passingyear`, `dob`, `age`, `designation`, `resume`, `hash`, `active`, `aboutme`, `skills`) VALUES
 (15, 'Jacob', 'Cosgrove', 'jacobntx@gmail.com', 'ZTA5YmY1ODJkMmU4YmM0MzhkYjk0NDAzYzU5ZTBjMWQ=', '', '', '', '', '', '', '', '', '', '', '5e9534f1daf72.pdf', '9ce00d1f87299fd3d18b4398a4cb337f', 1, 'Hello', '');
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
