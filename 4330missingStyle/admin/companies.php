@@ -77,7 +77,7 @@ require_once("../database.php");
                             echo "Activated";
                           } else if($row['active'] == '2') {
                             ?>
-                            <a href="reject.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
+                            <a href="reject.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve.php?id=<?php echo $row['id_company']; ?>">Approve</a>
                             <?php
                           } else if ($row['active'] == '3') {
                             ?>

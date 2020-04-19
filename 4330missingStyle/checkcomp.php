@@ -27,11 +27,11 @@ if(isset($_POST)) {
 
 			if($row['active'] == '2') {
 				$_SESSION['companyLoginError'] = "Your Account Is Still Pending Approval.";
-				header("Location: login-company.php");
+				header("Location: company-login.php");
 				exit();
 			} else if($row['active'] == '0') {
 				$_SESSION['companyLoginError'] = "Your Account Is Rejected. Please Contact For More Info.";
-				header("Location: login-company.php");
+				header("Location: company-login.php");
 				exit();
 			} else if($row['active'] == '1') {
 				// active 1 means admin has approved account.
@@ -44,14 +44,14 @@ if(isset($_POST)) {
 				exit();
 			} else if($row['active'] == '3') {
 				$_SESSION['companyLoginError'] = "Your Account Is Deactivated. Contact Admin For Reactivation.";
-				header("Location: login-company.php");
+				header("Location: company-login.php");
 				exit();
 			}
 		}
  	} else {
  		//if no matching record found in user table then redirect them back to login page
  		$_SESSION['loginError'] = $conn->error;
- 		header("Location: login-company.php");
+ 		header("Location: company-login.php");
 		exit();
  	}
 
@@ -60,6 +60,6 @@ if(isset($_POST)) {
 
 } else {
 	//redirect them back to login page if they didn't click login button
-	header("Location: login-company.php");
+	header("Location: company-login.php");
 	exit();
 }
