@@ -1,41 +1,47 @@
 <?php
   session_start();
   require("database.php");
+  echo "<link rel='stylesheet' type='text/css' href='style.css' />";
  ?>
  <!DOCTYPE html>
  <html>
   <head>
     <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href= -->
   </head>
   <body>
     <div>
-      <header>
-            <ul>
+    <header>
+        <div class= "topnav">
+          <div>
+            <b>ROCA.sa</b>
+          </div>
+            <div>
               <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
 
-                <li><a href="login.php">Login</a></li>
-                <li><a href="signup.php">Sign Up</a></li>
+                <a href="login.php">Login</a>
+                <a href="signup.php">Sign Up</a>
 
               <?php } else {
                 if(isset($_SESSION['id_user'])) {
               ?>
-              <li><a href="user/index.php">Dashboard</a></li>
+              <a href="user/index.php">Dashboard</a>
               <?php
             }
             else if(isset($_SESSION['id_company'])) {
               ?>
-              <li><a href="company/index.php">Dashboard</a></li>
+              <a href="company/index.php">Dashboard</a>
             <?php } ?>
-            <li><a href="logout.php">Logout</a></li>
+            <a href="logout.php">Logout</a>
             <?php } ?>
-            <li><a href="jobs.php">Jobs</a></li>
-            <li><a href="admin">Admin</a></li>
-          </ul>
+            <a href="jobs.php">Jobs</a>
+            <a href="admin">Admin</a>
+          </div>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <section id="about" class="content-header">
+    <section class= "about">
 
         <h1>About US</h1>
           <p>The online job portal application allows job seekers and recruiters to connect.The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search candidates, create job postings, and view candidates applications.
