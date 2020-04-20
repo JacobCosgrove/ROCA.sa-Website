@@ -48,7 +48,7 @@ require_once("../database.php");
 
                   <input type="number" class="form-control input-lg" id="maximumsalary" min= "1000" name="maximumsalary" placeholder="Maximum Salary" required="">
 
-                  <input type="number" class="form-control input-lg" id="experience"  min= "0" max= "5" autocomplete="off" name="experience" placeholder="Experience (yrs) Required" required="">
+                  <input type="number" class="form-control input-lg" id="experience"  min= "0" max= "10" autocomplete="off" name="experience" placeholder="Experience (yrs) Required" required="">
 
                   <input type="text" class="form-control input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
 

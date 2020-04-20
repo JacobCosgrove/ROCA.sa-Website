@@ -85,7 +85,6 @@
       <div class="row">
         <div class="col-sm-4">
           <h3>Contact Us</h3>
-          <br>
           <h4>Our address and contact info here.</h4>
         </div>
         <div class="col-sm-4">
