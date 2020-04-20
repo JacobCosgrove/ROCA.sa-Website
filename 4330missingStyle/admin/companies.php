@@ -85,7 +85,7 @@ require_once("../database.php");
                                }
                              ?>
                              </td>
-                             <td><a href="delete-company.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
+                             <td><a href="reject.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
                            </tr>
                           <?php
                              }

@@ -15,8 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div>
-    <header>
+
         <div class= "topnav">
           <div>
             <b>ROCA.sa</b>
@@ -30,20 +29,18 @@
               <?php } else {
                 if(isset($_SESSION['id_user'])) {
               ?>
+              <a href="logout.php">Logout</a>
               <a href="user/index.php">Dashboard</a>
               <?php
             }
             else if(isset($_SESSION['id_company'])) {
               ?>
+              <a href="logout.php">Logout</a>
               <a href="company/index.php">Dashboard</a>
-            <?php } ?>
-            <a href="logout.php">Logout</a>
-            <?php } ?>
-            <a href="jobs.php">Jobs</a>
+            <?php }
+              } ?>
           </div>
         </div>
-      </div>
-    </header>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">

@@ -4,11 +4,11 @@ body {
 }
 
 .container {
-  text-align: center;
-  padding-top: 5%;
+  padding-top: 2%;
 }
 
 .container h2 {
+  text-align: center;
   padding: 200px 5px;
 }
 

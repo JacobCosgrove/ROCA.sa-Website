@@ -16,6 +16,7 @@ require_once("../database.php");
 </head>
 <div>
 
+<<<<<<< HEAD
   <header>
 
     <a href="index.php">
@@ -24,6 +25,8 @@ require_once("../database.php");
 
   </header>
 
+=======
+>>>>>>> e6d736b5a878e66dbcf0c9a904d4b26e1f97c674
   <div>
 
     <section>

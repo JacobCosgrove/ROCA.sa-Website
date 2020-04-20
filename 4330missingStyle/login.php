@@ -23,11 +23,11 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   </head>
   <body>
     <header class="main-head">
+
       <div class= "topnav">
-        <div>
-          <b onclick="location.href='index.php'">ROCA.sa</b>
-        </div>
+        <b onclick="location.href='index.php'">ROCA.sa</b>
       </div>
+      
       <ul>
         <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
 

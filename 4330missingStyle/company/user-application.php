@@ -47,7 +47,7 @@ if($result->num_rows == 0)
 
     <section >
 
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>              
+                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 <ul>
                   <li><a href="index.php"> Dashboard</a></li>
                   <li><a href="edit-company.php"> My Company</a></li>
@@ -82,7 +82,7 @@ if($result->num_rows == 0)
                     echo '<br>';
                     echo 'City: '.$row['city'];
                     echo '<br>';
-                    if($row['resume'] != "") {
+                    if($row['resume']) {
                       echo '<a href="../uploads/resume/'.$row['resume'].'" class="btn btn-info" download="Resume">Download Resume</a>';
                     }
                     echo '<br>';
