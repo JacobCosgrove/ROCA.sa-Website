@@ -2,6 +2,9 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
+echo "<link rel='stylesheet' type='text/css' href='../login-pick-style.css' />";
+echo "<link rel='stylesheet' type='text/css' href='../table.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_user'])) {
@@ -14,75 +17,82 @@ if(empty($_SESSION['id_user'])) {
  <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div>
-      <header>
 
-        <!-- Logo -->
-        <a href="index.php">
-          <span><b>LA Jobs</b></span>
-        </a>
-      </header>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div>
-
-    <section>
-
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+    <div class= "topnav">
+      <b onclick="location.href='../index.php'">ROCA.sa</b>
+      <a href="../logout.php">Logout</a>
+      <a href="profile.php">Edit Profile</a>
+    </div>
 
 
-               <ul>
-                  <li><a href="profile.php"> Edit Profile</a></li>
-                  <li class="active"><a href="index.php"> My Applications</a></li>
-                  <li><a href="../jobs.php"> Jobs</a></li>
-                  <li><a href="inbox.php"> Mailbox</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
-                </ul>
+    <h2>Welcome <b><?php echo $_SESSION['name']; ?></b></h2>
+    <br>
 
+    <h2><i>Applications</i></h2>
 
-
-
-            <h2><i>Recent Applications</i></h2>
+    <table id="app-table">
+      <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Date Applied</th>
+        <th>Status</th>
+      </tr>
 
             <?php
-             $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost WHERE apply_job_post.id_user='$_SESSION[id_user]'";
+             $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost INNER JOIN company ON job_post.id_company=company.id_company WHERE apply_job_post.id_user='$_SESSION[id_user]'";
                   $result = $conn->query($sql);
 
-                  if($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc())
-                    {
+              if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc())
+                {
             ?>
-            <div class="attachment-block clearfix padding-2">
-                <h4 class="attachment-heading"><a href="view-job.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
-                <div class="attachment-text padding-2">
-                  <div class="pull-left"><i class="fa fa-calendar"></i> <?php echo $row['createdat']; ?></div>
-                  <?php
+                  <tr>
+                    <td>
+                      <a href="view-job.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                    </td>
+                    <td><?php echo $row['companyname']; ?></td>
+                    <td><?php echo $row['createdat']; ?></td>
+                    <td>
+                      <?php
+                      if($row['status'] == 0) {
+                        echo '<div><strong>Pending</strong></div>';
+                      } else if ($row['status'] == 1) {
+                        echo '<div><strong>Rejected</strong></div>';
+                      } else if ($row['status'] == 2) {
+                        echo '<div><strong>Under Review</strong></div> ';
+                      }
+                      ?>
+                    </td>
+                  </tr>
 
-                  if($row['status'] == 0) {
-                    echo '<div class="pull-right"><strong class="text-orange">Pending</strong></div>';
-                  } else if ($row['status'] == 1) {
-                    echo '<div class="pull-right"><strong class="text-red">Rejected</strong></div>';
-                  } else if ($row['status'] == 2) {
-                    echo '<div class="pull-right"><strong class="text-green">Under Review</strong></div> ';
-                  }
-                  ?>
-
-                </div>
-            </div>
 
             <?php
               }
             }
             ?>
+          </table>
 
-    </section>
+            <div class="container">
+              <div class="row">
 
-  </div>
-  <!-- /.content-wrapper -->
+                <button class="col-md-6" onclick="location.href='../jobs.php'">
+                  <h2>Jobs</h2>
+                </button>
 
-</div>
+                <button class="col-md-6" onclick="location.href='inbox.php'">
+                  <h2>Mailbox</h2>
+                </button>
+
+              </div>
+            </div>
+
+
 <!-- ./wrapper -->
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

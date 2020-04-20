@@ -16,14 +16,6 @@ require_once("../database.php");
 </head>
 <div>
 
-  <header>
-
-    <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
-    </a>
-
-  </header>
-
   <div>
 
     <section>

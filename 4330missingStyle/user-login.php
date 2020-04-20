@@ -16,10 +16,9 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <meta charset="utf-8">
   </head>
   <body>
+    
     <div class= "topnav">
-      <div>
-        <b onclick="location.href='index.php'">ROCA.sa</b>
-      </div>
+      <b onclick="location.href='index.php'">ROCA.sa</b>
     </div>
 
     <h2>User Login</h2>

@@ -15,8 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div>
-    <header>
+
         <div class= "topnav">
           <div>
             <b>ROCA.sa</b>
@@ -39,11 +38,8 @@
             <?php } ?>
             <a href="logout.php">Logout</a>
             <?php } ?>
-            <a href="jobs.php">Jobs</a>
           </div>
         </div>
-      </div>
-    </header>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">

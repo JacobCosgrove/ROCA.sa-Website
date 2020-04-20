@@ -78,18 +78,18 @@ require_once("../database.php");
                                  echo "Activated";
                                } else if($row['active'] == '2') {
                                  ?>
-                                 <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
+                                 <a href="reject.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve.php?id=<?php echo $row['id_company']; ?>">Approve</a>
                                  <?php
                                } else if ($row['active'] == '3') {
                                  ?>
-                                   <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
+                                   <a href="approve.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
                                  <?php
                                } else if($row['active'] == '0') {
                                  echo "Rejected";
                                }
                              ?>
                              </td>
-                             <td><a href="delete-company.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
+                             <td><a href="reject.php?id=<?php echo $row['id_company']; ?>">Delete</a></td>
                            </tr>
                           <?php
                              }
