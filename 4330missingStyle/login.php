@@ -52,7 +52,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
       </ul>
     </header>
-    
+
   <div class = "about">
     <h1>Login</h1>
   </div>

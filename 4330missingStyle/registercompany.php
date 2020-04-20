@@ -8,7 +8,6 @@
  <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
   </head>
   <body>
     <div class= "topnav">
@@ -23,19 +22,19 @@
 
           <form method="post" id="registerCompanies" action="addcomp.php" enctype="multipart/form-data">
 
-                <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" required><br>
+              <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" required><br>
 
-                <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required><br>
+              <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" required><br>
 
-                <input class="form-control input-lg" type="text" name="website" placeholder="Website"><br>
+              <input class="form-control input-lg" type="text" name="website" placeholder="Website"><br>
 
-                <input class="form-control input-lg" type="text" name="email" placeholder="Email" required><br>
+              <input class="form-control input-lg" type="text" name="email" placeholder="Email" required><br>
 
-                <input class="form-control input-lg" type="password" name="password" placeholder="Password" required><br>
+              <input class="form-control input-lg" type="password" name="password" placeholder="Password" required><br>
 
-                <input class="form-control input-lg" type="password" name="cpassword" placeholder="Confirm Password" required><br>
+              <input class="form-control input-lg" type="password" name="cpassword" placeholder="Confirm Password" required><br>
 
-                <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required><br>
+              <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required><br>
 
               <input class="form-control input-lg" type="text" id="city" name="country" placeholder="Country"><br>
 
@@ -68,8 +67,7 @@
               <?php
                unset($_SESSION['uploadError']); }
               ?>
-          </form>
-
+      </form>
     </div>
   </body>
 </html>
