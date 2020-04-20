@@ -31,7 +31,7 @@ if(empty($_SESSION['id_user'])) {
     </div>
 
 
-    <h2>Welcome <b><?php echo $_SESSION['name']; ?></b></h2>
+    <h2>Welcome <strong><?php echo $_SESSION['name']; ?></strong></h2>
     <br>
 
     <h2><i>Applications</i></h2>
