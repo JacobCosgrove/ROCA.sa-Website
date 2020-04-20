@@ -40,12 +40,12 @@ if(isset($_GET)) {
 		$conn->close();
 
     }  else {
-		header("Location: jobposts.php");
+		header("Location: jobs.php");
 		exit();
 	}
 
 
 } else {
-	header("Location: jobposts.php");
+	header("Location: jobs.php");
 	exit();
 }

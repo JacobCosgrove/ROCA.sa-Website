@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_user'])) {
@@ -15,31 +16,18 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-  <title>Inbox | LA Jobs</title>
-
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  <title>Mailbox | ROCA.sa</title>
 </head>
 <body>
-<div>
-  <header>
-    <a href="index.php">
-      <span><b>LA Jobs</b></span>
-    </a>
-  </header>
+    <div class="topnav">
+      <b onclick="location.href='../index.php'">ROCA.sa</b>
+      <a href="../logout.php">Logout</a>
+      <a href="../user/index.php">Dashboard</a>
+    </div>
 
-  <div>
+    <h3><b><?php echo $_SESSION['name']; ?>'s Inbox</b></h3>
 
-    <section>
-
-
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                <ul>
-                  <li><a href="profile.php"> Edit Profile</a></li>
-                  <li><a href="index.php"> My Applications</a></li>
-                  <li><a href="../jobs.php"> Jobs</a></li>
-                  <li class="active"><a href="inbox.php"> Mailbox</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
-                </ul>
 
 
 
@@ -48,7 +36,7 @@ require_once("../database.php");
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
+              <h3 class="box-title" style="margin-bottom: 20px;"></h3>
               <div class="pull-right">
                 <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
               </div>

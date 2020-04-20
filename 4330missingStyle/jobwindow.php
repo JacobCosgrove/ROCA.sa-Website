@@ -26,11 +26,10 @@ if($result->num_rows > 0) {
              ?>
 
 		   <div class="attachment-block clearfix">
-              <img class="attachment-img" src="uploads/logo/<?php echo $row1['logo']; ?>" alt="Attachment Image">
               <div class="attachment-pushed">
-                <h4 class="attachment-heading"><a href="viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">$<?php echo $row['maximumsalary']; ?>/Salary</span></h4>
+                <h4 class="attachment-heading"><a href="viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
                 <div class="attachment-text">
-                    <div><strong><?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?> | Experience <?php echo $row['experience']; ?> Years</strong><br><?php echo $row['description']; ?></div>
+                    <div><strong><?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?> | Experience <?php echo $row['experience']; ?> Years</strong><br><?php echo $row['description']; ?> Max Salary: $<?php echo $row['maximumsalary']; ?></div>
                 </div>
               </div>
             </div>

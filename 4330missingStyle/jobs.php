@@ -2,7 +2,8 @@
 
 //To Handle Session Variables on This Page
 session_start();
-
+echo "<link rel='stylesheet' type='text/css' href='home-style.css' />";
+// echo "<link rel='stylesheet' type='text/css' href='login-pick-style.css' />";
 
 //Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
@@ -11,86 +12,113 @@ require_once("database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>List of Jobs | LA Jobs</title>
+  <title>List of Jobs | ROCA.sa</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      text-align: center;
+    }
+    .content-wrapper {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 30px;
+    }
+
+    #searchBar {
+      font-size: 20px;
+      width: 20%;
+      margin: 5px auto;
+      display: inline-block;
+    }
+
+  .dropbtn {
+    background-color: #455075;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown1-content, .dropdown2-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown1-content a, .dropdown2-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown1-content a:hover, .dropdown2-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown1-content, .dropdown:hover .dropdown2-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #2f3b63;
+}
+  </style>
 </head>
 <body>
-<div>
 
-  <header>
+  <div class= "topnav">
+    <b onclick="location.href='index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="user/index.php">Dashboard</a>
+  </div>
 
-    <!-- Logo -->
-    <a href="index.php">
-      <span><b>LA Jobs</b></span>
-    </a>
+  <h2><i>Latest Jobs</i></h2>
 
-    <!-- Header Navbar: style can be found in header.less -->
+  <div class="content-wrapper">
 
-        <ul>
-          <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-          <li>
-            <a href="login.php">Login</a>
-          </li>
-          <li>
-            <a href="signup.php">Sign Up</a>
-          </li>
-          <?php } else {
+    <input type="text" id="searchBar" class="form-control" placeholder="Search job">
+    <span class="input-group-btn">
+      <button id="searchBtn" type="button" class="btn btn-info btn-flat" style="background:#455075">Go!</button>
+    </span>
 
-            if(isset($_SESSION['id_user'])) {
-          ?>
-          <li>
-            <a href="user/index.php">Dashboard</a>
-          </li>
-          <?php
-          } else if(isset($_SESSION['id_company'])) {
-          ?>
-          <li>
-            <a href="company/index.php">Dashboard</a>
-          </li>
-          <?php } ?>
-          <li>
-            <a href="logout.php">Logout</a>
-          </li>
-          <?php } ?>
-        </ul>
+          <h3 class="box-title">Filters</h3>
+            <div class="dropdown">
+              <button class="dropbtn">City</button>
+                <div class="dropdown1-content">
+                  <a href=""  class="citySearch" data-target="New Orleans"> New Orleans</a>
+                  <a href="" class="citySearch" data-target="Baton Rouge"> Baton Rouge</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">Experience</button>
+                <div class="dropdown2-content">
+                  <a href="" class="experienceSearch" data-target='1'> 1 Years</a>
+                  <a href="" class="experienceSearch" data-target='2'> 2 Years</a>
+                  <a href="" class="experienceSearch" data-target='3'> 3 Years</a>
+                  <a href="" class="experienceSearch" data-target='4'> 4 Years</a>
+                  <a href="" class="experienceSearch" data-target='5'> 5 Years</a>
+                </div>
+            </div>
+          <br><br><br><br><br><br><br>
 
-  </header>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
-
-    <section class="content-header">
-
-          <h1 class="text-center">Latest Jobs</h1>
-                <input type="text" id="searchBar" class="form-control" placeholder="Search job">
-                <span class="input-group-btn">
-                  <button id="searchBtn" type="button" class="btn btn-info btn-flat">Go!</button>
-                </span>
-    </section>
-
-    <section>
-
-                <h3 class="box-title">Filters</h3>
-              </div>
-              <div class="box-body no-padding">
-                <ul class="nav nav-pills nav-stacked tree" data-widget="tree">
-                  <li class="treeview menu-open">
-                    <a href="#"> City</a>
-                    <ul class="treeview-menu">
-                      <li><a href=""  class="citySearch" data-target="New Orleans"> New Orleans</a></li>
-                      <li><a href="" class="citySearch" data-target="Baton Rouge"> Baton Rouge</a></li>
-                    </ul>
-                  </li>
-                  <li class="treeview menu-open">
-                    <a href="#"> Experience</a>
-                    <ul class="treeview-menu">
-                      <li><a href="" class="experienceSearch" data-target='1'> 1 Years</a></li>
-                      <li><a href="" class="experienceSearch" data-target='2'> 2 Years</a></li>
-                      <li><a href="" class="experienceSearch" data-target='3'> 3 Years</a></li>
-                      <li><a href="" class="experienceSearch" data-target='4'> 4 Years</a></li>
-                      <li><a href="" class="experienceSearch" data-target='5'> 5 Years</a></li>
-                    </ul>
-                  </li>
-                </ul>
 
           <?php
 
@@ -109,25 +137,15 @@ require_once("database.php");
 
           ?>
             <div id="target-content">
-
             </div>
             <div class="text-center">
               <ul class="pagination text-center" id="pagination"></ul>
             </div>
 
-    </section>
-
-
-
-  </div>
-  <!-- /.content-wrapper -->
-</div>
-<!-- ./wrapper -->
+    </div>
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 <script src="js/jquery.twbsPagination.min.js"></script>

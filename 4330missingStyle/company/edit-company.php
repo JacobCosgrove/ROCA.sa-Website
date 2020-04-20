@@ -22,7 +22,7 @@ require_once("../database.php");
 <body>
   <div class= "topnav">
     <div>
-      <b onclick="location.href='index.php'">ROCA.sa</b>
+      <b onclick="location.href='../index.php'">ROCA.sa</b>
     </div>
   </div>
 
@@ -55,8 +55,8 @@ require_once("../database.php");
 
                 <input class="form-control input-lg" type="text" name="aboutme" placeholder="Brief info about your company" value="<?php echo $row['aboutme']; ?>"></input><br>
 
-                <label>Attach Company Logo</label>
-                <input type="file" name="image" value="<?php echo $row['logo']; ?>"><br>
+                <!-- <label>Attach Company Logo</label>
+                <input type="file" name="image" value="<?php echo $row['logo']; ?>"><br> -->
 
                 <button type="submit" class="btn btn-flat btn-success">Update Profile</button>
 

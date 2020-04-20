@@ -44,13 +44,8 @@
 
               <input class="form-control input-lg" type="text" name="aboutme" placeholder="Brief info about your company"></input><br>
 
-              <label>Attach Company Logo</label>
-              <input type="file" name="image" required><br>
 
-
-                <!-- <label><input type="checkbox" required> I accept terms & conditions</label><br> -->
-
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
 
               <?php
               //If Company already registered with this email then show error message.

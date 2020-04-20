@@ -55,7 +55,7 @@ if(empty($_SESSION['id_user'])) {
             ?>
                   <tr>
                     <td>
-                      <a href="view-job.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                      <a href="../viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
                     </td>
                     <td><?php echo $row['companyname']; ?></td>
                     <td><?php echo $row['createdat']; ?></td>

@@ -2,7 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
-
+echo "<link rel='stylesheet' type='text/css' href='home-style.css' />";
 
 //Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
@@ -11,21 +11,18 @@ require_once("database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>View Job Post | VetBosSel</title>
+  <title>View Job Post | ROCA.sa</title>
+</head>
 <body>
-<div>
-
-  <header>
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
-    </a>
-  </header>
+  <div class="topnav">
+    <b onclick="location.href='index.php'">ROCA.sa</b>
+    <a href="logout.php">Logout</a>
+    <a href="user/index.php">Dashboard</a>
+  </div>
 
 
 
-  <div>
+  <div id="jobdisplay">
 
   <?php
 
@@ -36,15 +33,11 @@ require_once("database.php");
       while($row = $result->fetch_assoc())
       {
   ?>
+              <br>
+              <button><a href="jobs.php"> Back</a></button>
 
-    <section>
-
-
-              <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
-
-
-              <a href="jobs.php"> Back</a>
-
+              <h3><strong><?php echo $row['jobtitle']; ?></strong></h3>
+              <h3><i><?php echo $row['companyname']; ?></i></h3>
 
               <p><span> <?php echo $row['city']; ?></span> <?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>
 
@@ -53,25 +46,16 @@ require_once("database.php");
 
             <?php
             if(isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
-            <div>
-              <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
-            </div>
+
             <?php } ?>
 
 
+                <!-- <p><a href="#" role="button">More Info</a> -->
 
 
-              <img src="uploads/logo/<?php echo $row['logo']; ?>" alt="companylogo">
-
-                <h3><?php echo $row['companyname']; ?></h3>
-                <p><a href="#" role="button">More Info</a>
-
-
-                  <div><a href=""> Apply</a></div>
-                  <div><a href=""> Report</a></div>
-                  <div><a href=""> Email</a></div>
-
-    </section>
+                  <button><a href="apply.php?id=<?php echo $row['id_jobpost']; ?>"> Apply</a></button>
+                  <button><a href=""> Report</a></button>
+                  <button><a href=""> Email</a></button>
 
     <?php
       }
@@ -80,13 +64,8 @@ require_once("database.php");
   </div>
   <!-- /.content-wrapper -->
 
-</div>
-<!-- ./wrapper -->
-
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 

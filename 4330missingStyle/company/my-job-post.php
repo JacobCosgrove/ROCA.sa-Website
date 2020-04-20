@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 //This is required if user tries to manually enter view-job-post.php in URL.
@@ -18,31 +19,18 @@ require_once("../database.php");
 <head>
   <meta charset="utf-8">
   <title>Job Post | ROCA.sa</title>
-
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-
 </head>
 <body>
-<div class="wrapper">
-
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span><b>ROCA.sa</b></span>
-    </a>
-  </header>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../company/index.php">Dashboard</a>
+  </div>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
-
-    <section id="candidates" class="content-header">
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-
-                <ul>
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
+  <div class="content-wrapper" style="margin-left: 5px;">
           <div class="col-md-9 bg-white padding-2">
             <h2><i>My Job Posts</i></h2>
             <p>In this section you can view all job posts created by you.</p>
