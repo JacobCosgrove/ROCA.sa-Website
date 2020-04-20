@@ -29,15 +29,16 @@
               <?php } else {
                 if(isset($_SESSION['id_user'])) {
               ?>
+              <a href="logout.php">Logout</a>
               <a href="user/index.php">Dashboard</a>
               <?php
             }
             else if(isset($_SESSION['id_company'])) {
               ?>
+              <a href="logout.php">Logout</a>
               <a href="company/index.php">Dashboard</a>
-            <?php } ?>
-            <a href="logout.php">Logout</a>
-            <?php } ?>
+            <?php }
+              } ?>
           </div>
         </div>
 
