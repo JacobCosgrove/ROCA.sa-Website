@@ -25,7 +25,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <h2>Create User Profile</h2>
 
       <div class="form">
-
+        <!-- register form for users that will pass through adduser.php -->
           <form method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
 
                 <input  type="text" id="fname" name="fname" placeholder="First Name *" required><br>

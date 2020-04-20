@@ -1,10 +1,8 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='home-style.css' />";
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
 ?>
 <!DOCTYPE html>
@@ -25,7 +23,7 @@ require_once("database.php");
   <div id="jobdisplay">
 
   <?php
-
+    //query to find details about company and job post
     $sql = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
     $result = $conn->query($sql);
     if($result->num_rows > 0)
@@ -35,6 +33,8 @@ require_once("database.php");
   ?>
               <br>
               <button><a href="javascript:history.back()"> Back</a></button>
+
+              <!-- display info that was fetched -->
 
               <h3><strong><?php echo $row['jobtitle']; ?></strong></h3>
               <h3><i><?php echo $row['companyname']; ?></i></h3>

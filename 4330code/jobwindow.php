@@ -14,6 +14,7 @@ if(isset($_GET["page"])) {
 
 $start_from = ($page-1) * $limit;
 
+//get daata to display on jobs.php
 $sql = "SELECT * FROM job_post LIMIT $start_from, $limit";
 $result = $conn->query($sql);
 if($result->num_rows > 0) {

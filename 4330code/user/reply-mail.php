@@ -7,7 +7,7 @@ if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
 }
-
+//add reply mail to database
 require_once("../database.php");
 
 if(isset($_POST)) {

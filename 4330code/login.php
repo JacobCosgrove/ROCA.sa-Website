@@ -56,7 +56,8 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <div class = "about">
     <h1>Login</h1>
   </div>
-
+  <!-- basic page to direct to login forms -->
+  
   <div class="container">
     <div class="row">
       <button class="col-md-6" id="bigbutton" onclick="location.href='user-login.php'">

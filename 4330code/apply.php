@@ -8,7 +8,6 @@ if(empty($_SESSION['id_user'])) {
 	exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
 
 //If user Actually clicked apply button
@@ -22,7 +21,7 @@ if(isset($_GET)) {
 	    	$id_company = $row['id_company'];
 	   }
 
-	//Check if user has applied to job post or not. If not then add his details to apply_job_post table.
+	//Check if user has applied to job post or not
 	$sql1 = "SELECT * FROM apply_job_post WHERE id_user='$_SESSION[id_user]' AND id_jobpost='$row[id_jobpost]'";
     $result1 = $conn->query($sql1);
     if($result1->num_rows == 0) {

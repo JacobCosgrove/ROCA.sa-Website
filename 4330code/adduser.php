@@ -1,15 +1,13 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
 
-//If user Actually clicked register button
+//only add if buttonw was pressed
 if(isset($_POST)) {
 
-	//Escape Special Characters In String First
+	//variables to pass to database
 	$firstname = mysqli_real_escape_string($conn, $_POST['fname']);
 	$lastname = mysqli_real_escape_string($conn, $_POST['lname']);
 	$address = mysqli_real_escape_string($conn, $_POST['address']);

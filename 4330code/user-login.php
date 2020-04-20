@@ -16,13 +16,14 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <meta charset="utf-8">
   </head>
   <body>
-    
+
     <div class= "topnav">
       <b onclick="location.href='index.php'">ROCA.sa</b>
     </div>
 
     <h2>User Login</h2>
-
+    <!-- basic login form for users that will pass through checkuser.php -->
+    
       <div class="form">
         <form method="post" action="checkuser.php">
 

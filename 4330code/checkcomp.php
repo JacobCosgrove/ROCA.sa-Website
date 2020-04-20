@@ -3,13 +3,12 @@
 //To Handle Session Variables on This Page
 session_start();
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
 
 //If user Actually clicked login button
 if(isset($_POST)) {
 
-	//Escape Special Characters in String
+	//variables to check
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -25,6 +24,7 @@ if(isset($_POST)) {
 		//output data
 		while($row = $result->fetch_assoc()) {
 
+			//handling for difference values of active (active/rejected/pending)
 			if($row['active'] == '2') {
 				$_SESSION['companyLoginError'] = "Your Account Is Still Pending Approval.";
 				header("Location: company-login.php");
@@ -41,10 +41,6 @@ if(isset($_POST)) {
 
 				//Redirect them to company dashboard once logged in successfully
 				header("Location: company/index.php");
-				exit();
-			} else if($row['active'] == '3') {
-				$_SESSION['companyLoginError'] = "Your Account Is Deactivated. Contact Admin For Reactivation.";
-				header("Location: company-login.php");
 				exit();
 			}
 		}

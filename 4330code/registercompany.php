@@ -16,6 +16,7 @@
       </div>
     </div>
 
+    <!-- register form for companies that will pass through addcomp.php -->
     <h2>Create Company Profile</h2>
 
       <div class="form">

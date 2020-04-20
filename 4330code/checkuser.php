@@ -3,13 +3,11 @@
 //To Handle Session Variables on This Page
 session_start();
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("database.php");
 
-//If user Actually clicked login button
 if(isset($_POST)) {
 
-	//Escape Special Characters in String
+	//values to check
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
@@ -56,11 +54,6 @@ if(isset($_POST)) {
 					header("Location: user/index.php");
 					exit();
 				}
-			} else if($row['active'] == '2') {
-
-				$_SESSION['loginActiveError'] = "Your Account Is Deactivated. Contact Admin To Reactivate.";
-		 		header("Location: login-candidates.php");
-				exit();
 			}
 
 			//Redirect them to user dashboard once logged in successfully

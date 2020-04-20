@@ -5,7 +5,7 @@ session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 echo "<link rel='stylesheet' type='text/css' href='../login-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if logged in, if not redirect
 if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
@@ -34,7 +34,7 @@ require_once("../database.php");
             $sql = "SELECT * FROM users WHERE id_user='$_SESSION[id_user]'";
             $result = $conn->query($sql);
 
-            //If user exists then show his details.
+            //If user exists then show his details
             if($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
             ?>
@@ -62,6 +62,7 @@ require_once("../database.php");
                 <label style="color: red;">File Format PDF Only!</label>
                 <input type="file" name="resume" value="<?php echo $row['resume']; ?>"><br>
 
+                <!-- on button press all new fields will go through edit-profile to database -->
                 <button type="submit" class="btn btn-flat btn-success">Update Profile</button>
 
               <?php

@@ -28,7 +28,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
         </div>
       </div>
     </header>
-
+    <!-- basic page to redirect to register pages -->
     <div class = "about">
       <h1>Registration</h1>
     </div>

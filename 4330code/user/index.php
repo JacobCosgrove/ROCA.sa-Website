@@ -6,7 +6,7 @@ echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 echo "<link rel='stylesheet' type='text/css' href='../login-pick-style.css' />";
 echo "<link rel='stylesheet' type='text/css' href='../table.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if logged in, if not redirect
 if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
@@ -24,7 +24,7 @@ if(empty($_SESSION['id_user'])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-
+    <!-- nav bar with redirection links -->
     <div class= "topnav">
       <b onclick="location.href='../index.php'">ROCA.sa</b>
       <a href="../logout.php">Logout</a>
@@ -44,7 +44,7 @@ if(empty($_SESSION['id_user'])) {
         <th>Date Applied</th>
         <th>Status</th>
       </tr>
-
+            <!-- show all active applications -->
             <?php
              $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost INNER JOIN company ON job_post.id_company=company.id_company WHERE apply_job_post.id_user='$_SESSION[id_user]'";
                   $result = $conn->query($sql);
@@ -61,6 +61,7 @@ if(empty($_SESSION['id_user'])) {
                     <td><?php echo $row['createdat']; ?></td>
                     <td>
                       <?php
+                      //job status that is updated by company
                       if($row['status'] == 0) {
                         echo '<div><strong>Pending</strong></div>';
                       } else if ($row['status'] == 1) {

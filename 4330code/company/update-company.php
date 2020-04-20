@@ -39,7 +39,7 @@ if(isset($_POST)) {
 	} else {
 		echo "Error ". $sql . "<br>" . $conn->error;
 	}
-	//Close database connection. Not compulsory but good practice.
+	//Close database connection
 	$conn->close();
 
 } else {

@@ -13,6 +13,8 @@ if(empty($_SESSION['id_user'])) {
 
 require_once("../database.php");
 
+//handling different types of mail you can read
+
 $sql = "SELECT * FROM mailbox WHERE id_mailbox='$_GET[id_mail]' AND (id_fromuser='$_SESSION[id_user]' OR id_touser='$_SESSION[id_user]')";
 $result = $conn->query($sql);
 if($result->num_rows >  0 ){
@@ -71,7 +73,7 @@ if($result->num_rows >  0 ){
   </div>
 
 
-
+          <!-- show info about message -->
           <div class="content">
             <h3><b><?php echo $_SESSION['name']; ?>'s Inbox</b></h3>
             <div class="row">

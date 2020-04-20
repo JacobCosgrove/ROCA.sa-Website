@@ -4,7 +4,7 @@
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//chekc if logged in, if not redirect
 if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
@@ -59,6 +59,7 @@ require_once("../database.php");
                   </thead>
                   <tbody>
                   <?php
+                    //insert into table mail direct to this user
                     $sql = "SELECT * FROM mailbox WHERE id_fromuser='$_SESSION[id_user]' OR id_touser='$_SESSION[id_user]'";
                     $result = $conn->query($sql);
                     if($result->num_rows >  0 ){

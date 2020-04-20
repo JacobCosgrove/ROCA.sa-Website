@@ -23,7 +23,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     </div>
 
     <h2>Company Login</h2>
-
+    <!-- basic login form for company -->
       <div class="form">
         <form method="post" action="checkcomp.php">
 

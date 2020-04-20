@@ -1,14 +1,13 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 
-//Including Database Connection From db.php file to avoid rewriting in all files
+//check if logged in, if not redirect
 require_once("database.php");
 
 if(isset($_POST)) {
 
-	//Escape Special Characters In String First
+	//get info from company register
 	$companyname = mysqli_real_escape_string($conn, $_POST['companyname']);
 	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
 	$website = mysqli_real_escape_string($conn, $_POST['website']);
@@ -32,41 +31,31 @@ if(isset($_POST)) {
 	//if email not found then we can insert new data
 	if($result->num_rows == 0) {
 
-			//This variable is used to catch errors doing upload process. False means there is some error and we need to notify that user.
-		$uploadOk = true;
-
-
-		//If there is any error then redirect back.
-		if($uploadOk == false) {
-			header("Location: registercompany.php");
-			exit();
-		}
-
     $sql = "INSERT INTO company(name, companyname, country, state, city, contactno, website, email, password, aboutme) VALUES ('$name', '$companyname', '$country', '$state', '$city', '$contactno', '$website', '$email', '$password', '$aboutme')";
 
 		if($conn->query($sql)===TRUE) {
 
-			//If data inserted successfully then Set some session variables for easy reference and redirect to company login
+			//If data inserted successfully set vari for easy reference
 			$_SESSION['registerCompleted'] = true;
 			header("Location: company-login.php");
 			exit();
 
 		} else {
-			//If data failed to insert then show that error. Note: This condition should not come unless we as a developer make mistake or someone tries to hack their way in and mess up :D
+			//sql inject protection hopefully
 			echo "Error " . $sql . "<br>" . $conn->error;
 		}
 	} else {
-		//if email found in database then show email already exists error.
+		//email exists already
 		$_SESSION['registerError'] = true;
 		header("Location: registercompany.php");
 		exit();
 	}
 
-	//Close database connection. Not compulsory but good practice.
+	//Close database connection
 	$conn->close();
 
 } else {
-	//redirect them back to register page if they didn't click register button
+	//redirect if didnt access page properly
 	header("Location: registercompaany.php");
 	exit();
 }

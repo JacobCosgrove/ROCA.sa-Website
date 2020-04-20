@@ -3,18 +3,18 @@
 //To Handle Session Variables on This Page
 session_start();
 
+//check if logged in, if not redirect
 if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 
-//if user Actually clicked update profile button
+//only update when button is pressed
 if(isset($_POST)) {
 
-	//Escape Special Characters
+ //send new entires to database to update
 	$firstname = mysqli_real_escape_string($conn, $_POST['fname']);
 	$lastname = mysqli_real_escape_string($conn, $_POST['lname']);
 	$address = mysqli_real_escape_string($conn, $_POST['address']);
@@ -27,7 +27,7 @@ if(isset($_POST)) {
 	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
 
 	$uploadOk = true;
-
+  // error checking resume to meet all requirements
 	if(isset($_FILES)) {
 
 		$folder_dir = "../uploads/resume/";
@@ -82,7 +82,7 @@ if(isset($_POST)) {
 	} else {
 		echo "Error ". $sql . "<br>" . $conn->error;
 	}
-	//Close database connection. Not compulsory but good practice.
+	//Close database connection
 	$conn->close();
 
 } else {

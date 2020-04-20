@@ -45,6 +45,8 @@ require_once("../database.php");
                 </ul>
 
               <?php
+
+               //query to get job details
                $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]' AND id_jobpost='$_GET[id]'";
                 $result = $conn->query($sql);
 
@@ -56,6 +58,7 @@ require_once("../database.php");
                 <div class="pull-left">
                   <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
                 </div>
+                <!-- basic filters for experience and city. Was unable to add more filters before deadline -->
                 <div class="pull-right">
                   <a href="my-job-post.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
                 </div>

@@ -1,10 +1,9 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if logged in, if not redirect
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
@@ -20,7 +19,7 @@ require_once("../database.php");
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
-  <!-- give the recruiter a text box for job desc. -->
+  <!-- give the recruiter a text box for mail desc. -->
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 150 });</script>
 

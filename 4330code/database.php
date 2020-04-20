@@ -1,6 +1,6 @@
 <?php
 
-//Your Mysql Config
+//Mysql Config
 $servername = "localhost";
 $username = "root";
 $password = "";

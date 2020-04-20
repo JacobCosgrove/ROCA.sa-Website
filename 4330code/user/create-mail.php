@@ -1,10 +1,10 @@
 <?php
 
-//To Handle Session Variables on This Page
+
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if logged in, if not redirect
 if(empty($_SESSION['id_user'])) {
   header("Location: ../index.php");
   exit();
@@ -19,10 +19,12 @@ require_once("../database.php");
   <title>Create Mail | ROCA.sa</title>
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  <!-- give user a text box for mail desc. -->
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 150 });</script>
 </head>
 <body>
+  <!-- nav bar with redirect -->
   <div class="topnav">
     <b onclick="location.href='../index.php'">ROCA.sa</b>
     <a href="../logout.php">Logout</a>
@@ -30,7 +32,7 @@ require_once("../database.php");
   </div>
 
     <section>
-
+      <!-- give fields for recruiter to make mail only to companies they applied -->
           <form action="add-mail.php" method="post">
             <div class="box box-primary">
               <div class="box-header with-border">
@@ -63,6 +65,7 @@ require_once("../database.php");
                 <div class="pull-right">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send</button>
                 </div>
+                <!-- if discarded return to mailbox -->
                 <a href="mailbox.php" class="btn btn-default"><i class="fa fa-times"></i> Discard</a>
               </div>
               <!-- /.box-footer -->
