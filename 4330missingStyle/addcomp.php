@@ -80,7 +80,7 @@ if(isset($_POST)) {
 
 		//If there is any error then redirect back.
 		if($uploadOk == false) {
-			header("Location: register-company.php");
+			header("Location: registercompany.php");
 			exit();
 		}
 

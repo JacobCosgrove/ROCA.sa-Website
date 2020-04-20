@@ -31,7 +31,7 @@ require_once("database.php");
             <a href="login.php">Login</a>
           </li>
           <li>
-            <a href="sign-up.php">Sign Up</a>
+            <a href="signup.php">Sign Up</a>
           </li>
           <?php } else {
 
