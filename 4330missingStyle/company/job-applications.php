@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_company'])) {
@@ -15,27 +16,24 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Job Applications | VetBosSel</title>
+  <title>Job Applications | ROCA.sa</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  <style>
+    .attachment-block {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
-<div>
-
-  <header class="main-header">
-    <a href="index.php">
-      <span><b>ROCA.sa</b></span>
-    </a>
-
-  </header>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../company/index.php">Dashboard</a>
+  </div>
 
   <!-- Content Wrapper. Contains page content -->
-  <div>
 
-    <section>
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                <ul>
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
-            <h2><i>Recent Applications</i></h2>
+<h2><i>Recent Applications</i></h2>
 
             <?php
              $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]'";

@@ -22,7 +22,7 @@ require_once("../database.php");
 <body>
   <div class= "topnav">
     <div>
-      <b onclick="location.href='index.php'">ROCA.sa</b>
+      <b onclick="location.href='../index.php'">ROCA.sa</b>
     </div>
   </div>
 

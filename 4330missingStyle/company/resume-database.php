@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 //This is required if user tries to manually enter view-job-post.php in URL.
@@ -15,38 +16,23 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Resume Database | VetBosSel</title>
+  <title>Resume Database | ROCA.sa</title>
 
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-
+  <style>
+    #example2 {
+      text-align: left;
+    }
+  </style>
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
+<div class="topnav">
+  <b onclick="location.href='../index.php'">ROCA.sa</b>
+  <a href="../logout.php">Logout</a>
+  <a href="../company/index.php">Dashboard</a>
+</div>
 
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span><b>ROCA.sa</b></span>
-    </a>
-  </header>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div>
-
-    <section id="candidates" class="content-header">
-
-
-
-
-
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-
-
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
+    <div id="candidates" class="content-header">
 
             <h2><i>Applicant Database</i></h2>
             <div class="row margin-top-20">
@@ -85,7 +71,7 @@ require_once("../database.php");
                         </td>
                         <td><?php echo $row['city']; ?></td>
                         <td><?php echo $row['state']; ?></td>
-                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
+                        <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o">Resume</i></a></td>
                       </tr>
 
                       <?php
@@ -99,13 +85,7 @@ require_once("../database.php");
                 </div>
               </div>
             </div>
-    </section>
-
-
-  </div>
-
-</div>
-<!-- ./wrapper -->
+    </div>
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

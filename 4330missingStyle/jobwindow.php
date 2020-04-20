@@ -30,6 +30,7 @@ if($result->num_rows > 0) {
                 <h4 class="attachment-heading"><a href="viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
                 <div class="attachment-text">
                     <div><strong><?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?> | Experience <?php echo $row['experience']; ?> Years</strong><br><?php echo $row['description']; ?> Max Salary: $<?php echo $row['maximumsalary']; ?></div>
+										<br><hr>
                 </div>
               </div>
             </div>

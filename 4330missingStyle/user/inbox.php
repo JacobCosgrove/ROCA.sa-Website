@@ -18,6 +18,11 @@ require_once("../database.php");
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
   <title>Mailbox | ROCA.sa</title>
+  <style>
+    #example1 {
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
     <div class="topnav">
@@ -68,12 +73,6 @@ require_once("../database.php");
                     }
                   ?>
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Subject</th>
-                      <th>Date</th>
-                    </tr>
-                  </tfoot>
                 </table>
                 <!-- /.table -->
               </div>

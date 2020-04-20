@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
@@ -23,41 +24,22 @@ if($result->num_rows == 0)
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LA Jobs</title>
+  <title>Applications | ROCA.sa</title>
 
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
 </head>
 <body>
-<div>
-
-  <header>
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-  </header>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../company/index.php">Dashboard</a>
+  </div>
 
   <!-- Content Wrapper. Contains page content -->
   <div>
-
-    <section >
-
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                <ul>
-                  <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li><a href="create-job-post.php"> Create Job Post</a></li>
-                  <li class="active"><a href="my-job-post.php"> My Job Post</a></li>
-                  <li><a href="job-applications.php"> Job Application</a></li>
-                  <li><a href="mailbox.php"> Mailbox</a></li>
-                  <li><a href="resume-database.php"> Resume Database</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
-                </ul>
+    <h2><i>Applications</i></h2>
 
               <?php
                $sql = "SELECT * FROM users WHERE id_user='$_GET[id]'";
@@ -69,13 +51,10 @@ if($result->num_rows == 0)
                   {
                 ?>
                 <div class="pull-left">
-                  <h2><b><i><?php echo $row['firstname']. ' '.$row['lastname']; ?></i></b></h2>
-                </div>
-                <div class="pull-right">
-                  <a href="job-applications.php"> Back</a>
+                  <h3><b><i><?php echo $row['firstname']. ' '.$row['lastname']; ?></i></b></h3>
                 </div>
                 <div class="clearfix"></div>
-                <hr>
+                <!-- <hr> -->
                 <div>
                   <?php
                     echo 'Email: '.$row['email'];
@@ -85,8 +64,7 @@ if($result->num_rows == 0)
                     if($row['resume']) {
                       echo '<a href="../uploads/resume/'.$row['resume'].'" class="btn btn-info" download="Resume">Download Resume</a>';
                     }
-                    echo '<br>';
-                    echo '<br>';
+
                     echo '<br>';
                     echo '<br>';
                   ?>
@@ -99,24 +77,15 @@ if($result->num_rows == 0)
                     </div>
                   </div>
                 </div>
-
-                <div>
-                </div>
+                <br><hr>
                 <?php
                   }
                 }
                 ?>
 
-    </section>
-
-
-
 
   </div>
   <!-- /.content-wrapper -->
-
-</div>
-<!-- ./wrapper -->
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

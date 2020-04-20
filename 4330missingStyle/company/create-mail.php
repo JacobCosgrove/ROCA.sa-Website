@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_company'])) {
@@ -15,7 +16,7 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Job Portal</title>
+  <title>Create Mail | ROCA.sa</title>
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
@@ -24,22 +25,14 @@ require_once("../database.php");
 
 </head>
 <body>
-<div>
-  <header>
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span><b>ROCA.sa</b></span>
-    </a>
-  </header>
-  <div>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../company/index.php">Dashboard</a>
+  </div>
 
     <section>
 
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                <ul>
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
           <form action="add-mail.php" method="post">
                 <h3 class="box-title">Compose New Message</h3>
                   <select name="to" class="form-control">
@@ -55,7 +48,7 @@ require_once("../database.php");
                   </select>
                   <input class="form-control" name="subject" placeholder="Subject:">
                   <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
-                  <button type="submit" Send</button>
+                  <button type="submit">Send</button>
 
                 <a href="mailbox.php" Discard</a>
           </form>

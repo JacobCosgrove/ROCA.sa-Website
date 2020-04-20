@@ -86,7 +86,7 @@ require_once("database.php");
 
   <div class= "topnav">
     <b onclick="location.href='index.php'">ROCA.sa</b>
-    <a href="../logout.php">Logout</a>
+    <a href="logout.php">Logout</a>
     <a href="user/index.php">Dashboard</a>
   </div>
 

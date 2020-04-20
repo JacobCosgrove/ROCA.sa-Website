@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_company'])) {
@@ -15,46 +16,32 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-
   <title>Mailbox | ROCA.sa</title>
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-
+  <style>
+    #example1 {
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
-<div>
-
-  <header>
-    <a href="index.php" class="logo logo-bg">
-      <span class="logo-lg"><b>ROCA.sa</b></span>
-    </a>
-  </header>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../company/index.php">Dashboard</a>
+  </div>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
+  <div class="content-wrapper" style="margin-left: 5px;">
 
-    <section>
-      <div>
-        <div>
-          <div>
-            <div>
-              <div>
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-              </div>
-              <div>
-                <ul>
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div>
-          <section class="content">
+    <h3><b>Your Mailbox @ (<?php echo $_SESSION['name']; ?>)</b></h3>
+
       <div class="row">
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
+              <h3 class="box-title" style="margin-bottom: 20px;"></h3>
               <div class="pull-right">
                 <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
               </div>
@@ -86,12 +73,6 @@ require_once("../database.php");
                     }
                   ?>
                   </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>Subject</th>
-                      <th>Date</th>
-                    </tr>
-                  </tfoot>
                 </table>
                 <!-- /.table -->
               </div>
@@ -105,17 +86,6 @@ require_once("../database.php");
         <!-- /.col -->
       </div>
       <!-- /.row -->
-    </section>
-
-    </section>
-
-
-
-  </div>
-  <!-- /.content-wrapper -->
-
-</div>
-<!-- ./wrapper -->
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

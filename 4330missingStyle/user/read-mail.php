@@ -3,6 +3,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_user'])) {
@@ -10,7 +11,7 @@ if(empty($_SESSION['id_user'])) {
   exit();
 }
 
-require_once("../db.php");
+require_once("../database.php");
 
 $sql = "SELECT * FROM mailbox WHERE id_mailbox='$_GET[id_mail]' AND (id_fromuser='$_SESSION[id_user]' OR id_touser='$_SESSION[id_user]')";
 $result = $conn->query($sql);
@@ -48,7 +49,7 @@ if($result->num_rows >  0 ){
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Mail | LA Jobs</title>
+  <title>Mail | ROCA.sa</title>
 
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
@@ -56,38 +57,26 @@ if($result->num_rows >  0 ){
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 150 });</script>
 
+  <style>
+    .content {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
-<div>
-
-  <header>
-
-    <!-- Logo -->
-    <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
-    </a>
-
-  </header>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div>
-
-    <section>
-
-                <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-
-                <ul>
-                  <li><a href="profile.php"> Edit Profile</a></li>
-                  <li><a href="index.php"> My Applications</a></li>
-                  <li class="active"><a href="inbox.php"> Mailbox</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
-                </ul>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="index.php">Dashboard</a>
+  </div>
 
 
-          <section class="content">
+
+          <div class="content">
+            <h3><b><?php echo $_SESSION['name']; ?>'s Inbox</b></h3>
             <div class="row">
               <div class="col-md-12">
-                <a href="mailbox.php" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a>
+                <button><a href="javascript:history.back()" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a></button>
                 <div class="box box-primary">
                   <!-- /.box-header -->
                   <div class="box-body no-padding">
@@ -103,6 +92,7 @@ if($result->num_rows >  0 ){
                   </div>
                   <!-- /.box-body -->
                 </div>
+                <br><hr>
 
                 <?php
 
@@ -127,6 +117,7 @@ if($result->num_rows >  0 ){
                   }
                 }
                 ?>
+                <br><hr>
 
 
                 <div class="box box-primary">
@@ -136,13 +127,13 @@ if($result->num_rows >  0 ){
                       <h3>Send Reply</h3>
                     </div>
                     <div class="mailbox-read-message">
-                      <form action="reply-mailbox.php" method="post">
+                      <form action="reply-mail.php" method="post">
                         <div class="form-group">
                           <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
                           <input type="hidden" name="id_mail" value="<?php echo $_GET['id_mail']; ?>">
                         </div>
                         <div class="form-group">
-                          <button type="submit" class="btn btn-flat btn-success">Reply</button>
+                          <button type="submit" class="btn btn-flat btn-success"><a href="inbox.php">Reply</a></button>
                         </div>
                       </form>
                     </div>

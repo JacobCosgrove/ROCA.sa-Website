@@ -21,6 +21,11 @@ require_once("../database.php");
   <title>Job Post | ROCA.sa</title>
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  <style>
+    #example2 {
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <div class="topnav">
@@ -33,14 +38,13 @@ require_once("../database.php");
   <div class="content-wrapper" style="margin-left: 5px;">
           <div class="col-md-9 bg-white padding-2">
             <h2><i>My Job Posts</i></h2>
-            <p>In this section you can view all job posts created by you.</p>
             <div class="row margin-top-20">
               <div class="col-md-12">
                 <div class="box-body table-responsive no-padding">
                   <table id="example2" class="table table-hover">
                     <thead>
                       <th>Job Title</th>
-                      <th>View</th>
+                      <th>Date Posted</th>
                     </thead>
                     <tbody>
                     <?php
@@ -53,8 +57,12 @@ require_once("../database.php");
                         {
                       ?>
                       <tr>
-                        <td><?php echo $row['jobtitle']; ?></td>
-                        <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
+                        <td>
+                          <a href="../viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
+                        </td>
+                        <td>
+                          <a><?php echo $row['createdat']; ?></a>
+                        </td>
                       </tr>
                       <?php
                        }

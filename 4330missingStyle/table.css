@@ -22,3 +22,29 @@
   background-color: #455075;
   color: white;
 }
+/* ___________________________________________ */
+
+/* #job-table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#job-table td, #job-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#job-table tr:nth-child(even){background-color: #f2f2f2;}
+#job-table tr:nth-child(odd){background-color: #d4d4d4;}
+
+#job-table tr:hover {background-color: #b7c3eb;}
+
+#job-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #455075;
+  color: white;
+} */

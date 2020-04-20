@@ -34,7 +34,7 @@ require_once("database.php");
       {
   ?>
               <br>
-              <button><a href="jobs.php"> Back</a></button>
+              <button><a href="javascript:history.back()"> Back</a></button>
 
               <h3><strong><?php echo $row['jobtitle']; ?></strong></h3>
               <h3><i><?php echo $row['companyname']; ?></i></h3>
@@ -46,16 +46,11 @@ require_once("database.php");
 
             <?php
             if(isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
-
+              <button><a href="apply.php?id=<?php echo $row['id_jobpost']; ?>"> Apply</a></button>
+              <button><a href=""> Report</a></button>
+              <button><a href=""> Email</a></button>
             <?php } ?>
 
-
-                <!-- <p><a href="#" role="button">More Info</a> -->
-
-
-                  <button><a href="apply.php?id=<?php echo $row['id_jobpost']; ?>"> Apply</a></button>
-                  <button><a href=""> Report</a></button>
-                  <button><a href=""> Email</a></button>
 
     <?php
       }

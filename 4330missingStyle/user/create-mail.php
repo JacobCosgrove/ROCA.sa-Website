@@ -2,6 +2,7 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_user'])) {
@@ -15,36 +16,20 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LA Jobs</title>
+  <title>Create Mail | ROCA.sa</title>
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-
+  <script src="../js/tinymce/tinymce.min.js"></script>
+  <script>tinymce.init({ selector:'#description', height: 150 });</script>
 </head>
 <body>
-<div>
-
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <span class="logo-lg">LA Jobs</span>
-    </a>
-
-  </header>
-
-  <div>
+  <div class="topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="../user/index.php">Dashboard</a>
+  </div>
 
     <section>
-
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-
-
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="profile.php"> Edit Profile</a></li>
-                  <li><a href="index.php"> My Applications</a></li>
-                  <li class="active"><a href="inbox.php"> Mailbox</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
-                </ul>
 
           <form action="add-mail.php" method="post">
             <div class="box box-primary">
@@ -85,11 +70,6 @@ require_once("../database.php");
           </form>
 
     </section>
-
-
-
-  </div>
-  <!-- /.content-wrapper -->
 
 </div>
 <!-- ./wrapper -->
