@@ -16,17 +16,13 @@ require_once("../database.php");
 </head>
 <div>
 
-<<<<<<< HEAD
   <header>
 
-    <a href="index.php">
+    <a href="../index.php">
       <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
 
   </header>
-
-=======
->>>>>>> e6d736b5a878e66dbcf0c9a904d4b26e1f97c674
   <div>
 
     <section>
