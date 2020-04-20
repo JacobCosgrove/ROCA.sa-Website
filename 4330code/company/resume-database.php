@@ -1,11 +1,9 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
-//This is required if user tries to manually enter view-job-post.php in URL.
+//check if logged in, if not redirect
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
@@ -34,6 +32,8 @@ require_once("../database.php");
 
     <div id="candidates" class="content-header">
 
+        <!-- talbe to show all applications to all your jobs -->
+
             <h2><i>Applicant Database</i></h2>
             <div class="row margin-top-20">
               <div class="col-md-12">
@@ -49,6 +49,8 @@ require_once("../database.php");
                     </thead>
                     <tbody>
                     <?php
+                    // triple inner join to get info from job post and users who applied
+
                        $sql = "SELECT users.* FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]' GROUP BY users.id_user";
                             $result = $conn->query($sql);
 
@@ -71,6 +73,9 @@ require_once("../database.php");
                         </td>
                         <td><?php echo $row['city']; ?></td>
                         <td><?php echo $row['state']; ?></td>
+
+                        <!-- download resume from encrypted folder -->
+
                         <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o">Resume</i></a></td>
                       </tr>
 
@@ -96,7 +101,7 @@ require_once("../database.php");
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
 
-
+<!-- basic script to create table -->
 <script>
   $(function () {
     $('#example2').DataTable({

@@ -3,12 +3,12 @@
 //To Handle Session Variables on This Page
 session_start();
 
+//check if logged in, if not redirect
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 
 //If user Actually clicked login button

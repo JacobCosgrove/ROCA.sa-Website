@@ -1,6 +1,5 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
@@ -59,12 +58,14 @@ require_once("../database.php");
                   </thead>
                   <tbody>
                   <?php
+                    //query for grabbing messages to display
                     $sql = "SELECT * FROM mailbox WHERE id_fromuser='$_SESSION[id_company]' OR id_touser='$_SESSION[id_company]'";
                     $result = $conn->query($sql);
                     if($result->num_rows >  0 ){
                         while($row = $result->fetch_assoc()) {
                   ?>
                   <tr>
+                    <!-- displaying all relavent info in table -->
                     <td class="mailbox-subject"><a href="read-mail.php?id_mail=<?php echo $row['id_mailbox']; ?>"><?php echo $row['subject']; ?></a></td>
                     <td class="mailbox-date"><?php echo date("d-M-Y h:i a", strtotime($row['createdAt'])); ?></td>
                   </tr>

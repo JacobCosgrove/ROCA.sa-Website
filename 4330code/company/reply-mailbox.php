@@ -5,6 +5,8 @@ session_start();
 
 require_once("../database.php");
 
+//insert reply message to database and redirect to malibox
+
 if(isset($_POST)) {
 	$message = mysqli_real_escape_string($conn, $_POST['description']);
 

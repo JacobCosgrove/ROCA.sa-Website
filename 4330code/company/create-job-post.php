@@ -1,10 +1,9 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if user is logged in. redirect if not
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
@@ -16,7 +15,6 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Create Job Post | ROCA.sa</title>
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 300 });</script>
@@ -31,12 +29,14 @@ require_once("../database.php");
   </style>
 </head>
 <body>
+  <!-- top nav bar -->
   <div class="topnav">
     <b onclick="location.href='../index.php'">ROCA.sa</b>
     <a href="../logout.php">Logout</a>
     <a href="../company/index.php">Dashboard</a>
   </div>
-
+          <!-- give the recruiter fields to create a job post then calls addpost.php to confirm and submit to database -->
+          
             <h2><i>Create Job Post</i></h2>
               <form method="post" action="addpost.php">
 

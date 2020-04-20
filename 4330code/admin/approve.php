@@ -12,7 +12,7 @@ require_once("../database.php");
 
 if(isset($_GET)) {
 
-	//Delete Company using id and redirect
+	//Approve company then redirect to company page
 	$sql = "UPDATE company SET active='1' WHERE id_company='$_GET[id]'";
 	if($conn->query($sql)) {
 		header("Location: companies.php");

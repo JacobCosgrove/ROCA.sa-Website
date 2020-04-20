@@ -15,12 +15,11 @@ require_once("../database.php");
   <title>Applicant Details | ROCA.sa</title>
 
 </head>
-<body class="hold-transition skin-purple sidebar-mini">
+<body>
 <div class="wrapper">
 
   <header class="main-header">
 
-    <!-- Logo -->
     <a href="index.php" class="logo logo-bg-purple">
       <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
@@ -32,9 +31,8 @@ require_once("../database.php");
               <div>
                 <ul>
                   <li><a href="home.php"> Home</a></li>
-                  
 
-
+                  <!-- display active jobs -->
                   <h3>Active Job Posts</h3>
                                 <div class="row margin-top-20">
                                   <div class="col-md-12">
@@ -49,6 +47,7 @@ require_once("../database.php");
                                         </thead>
                                         <tbody>
                                           <?php
+                                          //query to display job related info
                                           $sql = "SELECT job_post.*, company.companyname FROM job_post INNER JOIN company ON job_post.id_company=company.id_company";
                                           $result = $conn->query($sql);
                                           if($result->num_rows > 0) {
@@ -59,8 +58,7 @@ require_once("../database.php");
                                             <td><?php echo $row['jobtitle']; ?></td>
                                             <td><?php echo $row['companyname']; ?></td>
                                             <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
-                                            <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
-                                            <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
+                                            <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i></i></a></td>
                                           </tr>
                                                 <?php
                                             }

@@ -1,17 +1,17 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 
-//If user Not logged in then redirect them back to homepage.
-//This is required if user tries to manually enter view-job-post.php in URL.
+//check if logged in, redirect if not
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
+
 require_once("../database.php");
+
+//reject user application
 
 $sql = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND id_user='$_GET[id]' AND id_jobpost='$_GET[id_jobpost]'";
 $result = $conn->query($sql);

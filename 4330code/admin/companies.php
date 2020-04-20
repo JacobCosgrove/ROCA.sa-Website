@@ -69,6 +69,7 @@ require_once("../database.php");
                              <td><?php echo $row['state']; ?></td>
                              <td><?php echo $row['country']; ?></td>
                              <td>
+                               <!-- handling how company will be processed -->
                              <?php
                                if($row['active'] == '1') {
                                  echo "Activated";
@@ -76,6 +77,7 @@ require_once("../database.php");
                                  ?>
                                  <a href="reject.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve.php?id=<?php echo $row['id_company']; ?>">Approve</a>
                                  <?php
+                                 //deactivate and reactvate were not implemented at the time of presentation
                                } else if ($row['active'] == '3') {
                                  ?>
                                    <a href="approve.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
@@ -105,6 +107,7 @@ require_once("../database.php");
   <!-- AdminLTE App -->
   <script src="../js/adminlte.min.js"></script>
 
+  <!-- basic script to set up jquery datatable -->
   <script>
     $(function () {
       $('#example2').DataTable({

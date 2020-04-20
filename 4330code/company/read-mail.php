@@ -12,6 +12,8 @@ if(empty($_SESSION['id_company'])) {
 
 require_once("../database.php");
 
+
+//handling the differnt queries for type of mail you can recieve
 $sql = "SELECT * FROM mailbox WHERE id_mailbox='$_GET[id_mail]' AND (id_fromuser='$_SESSION[id_company]' OR id_touser='$_SESSION[id_company]')";
 $result = $conn->query($sql);
 if($result->num_rows >  0 ){
@@ -48,60 +50,23 @@ if($result->num_rows >  0 ){
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>Read Mail | Company</title>
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../css/AdminLTE.min.css">
-  <link rel="stylesheet" href="../css/_all-skins.min.css">
-  <!-- Custom -->
-  <link rel="stylesheet" href="../css/custom.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 150 });</script>
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
-
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>J</b>P</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Job</b> Portal</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <div class= "topnav">
+    <b onclick="location.href='../index.php'">ROCA.sa</b>
+    <a href="../logout.php">Logout</a>
+    <a href="index.php">Dashboard</a>
+  </div>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
@@ -135,7 +100,7 @@ if($result->num_rows >  0 ){
                 </div>
 
                 <?php
-
+                //getting info from selected mail to display
                 $sqlReply = "SELECT * FROM reply_mailbox WHERE id_mailbox='$_GET[id_mail]'";
                 $resultReply = $conn->query($sqlReply);
                 if($resultReply->num_rows > 0) {

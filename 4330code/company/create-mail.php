@@ -20,10 +20,12 @@ require_once("../database.php");
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
+  <!-- give the recruiter a text box for job desc. -->
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 150 });</script>
 
 </head>
+<!-- nav bar for redirection -->
 <body>
   <div class="topnav">
     <b onclick="location.href='../index.php'">ROCA.sa</b>
@@ -32,7 +34,7 @@ require_once("../database.php");
   </div>
 
     <section>
-
+        <!-- give fields for recruiter to make mail only to job applicants -->
           <form action="add-mail.php" method="post">
                 <h3 class="box-title">Compose New Message</h3>
                   <select name="to" class="form-control">
@@ -49,7 +51,7 @@ require_once("../database.php");
                   <input class="form-control" name="subject" placeholder="Subject:">
                   <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
                   <button type="submit">Send</button>
-
+                <!-- if discarded return to mailbox -->
                 <a href="mailbox.php" Discard</a>
           </form>
     </section>

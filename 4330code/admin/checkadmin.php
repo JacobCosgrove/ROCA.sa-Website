@@ -1,22 +1,17 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 
-//If user Actually clicked login button
+//check if correct path was used to access page
 if(isset($_POST)) {
 
 	//Escape Special Characters in String
 	$username = mysqli_real_escape_string($conn, $_POST['username']);
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
-	//Encrypt Password
-	// $password = base64_encode(strrev(md5($password)));
-
-	//sql query to check user login
+	//query to check user login
 	$sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
 	$result = $conn->query($sql);
 
@@ -30,6 +25,8 @@ if(isset($_POST)) {
 			header("Location: home.php");
 			exit();
 		}
+
+		//If there is an issue direct them to login
  	} else {
  		$_SESSION['loginError'] = true;
  		header("Location: index.php");

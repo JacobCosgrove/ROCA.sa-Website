@@ -31,6 +31,8 @@ require_once("../database.php");
     <a href="edit-company.php">My Company</a>
   </div>
 
+  <!-- recruiter homepage with links to other available pages -->
+  
   <h2>Welcome <strong><?php echo $_SESSION['name']; ?></strong></h2>
   <br>
 

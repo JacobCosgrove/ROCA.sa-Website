@@ -4,14 +4,15 @@
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
+//check if logged in, if not redirect
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 
+//query to get user data from db to display in table later
 $sql = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND id_user='$_GET[id]'";
 $result = $conn->query($sql);
 if($result->num_rows == 0)
@@ -54,7 +55,7 @@ if($result->num_rows == 0)
                   <h3><b><i><?php echo $row['firstname']. ' '.$row['lastname']; ?></i></b></h3>
                 </div>
                 <div class="clearfix"></div>
-                <!-- <hr> -->
+               <!-- talbe with info that was fetched and displays as well as has a download resume button -->
                 <div>
                   <?php
                     echo 'Email: '.$row['email'];
@@ -68,6 +69,7 @@ if($result->num_rows == 0)
                     echo '<br>';
                     echo '<br>';
                   ?>
+                  <!-- reject and under view buttons -->
                   <div class="row">
                     <div class="col-md-3 pull-left">
                       <a href="under-review.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-success">Mark Under Review</a>

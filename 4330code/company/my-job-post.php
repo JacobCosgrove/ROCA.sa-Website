@@ -1,17 +1,14 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
-//This is required if user tries to manually enter view-job-post.php in URL.
+//check if logged in, if not redirect to index
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
 }
 
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 ?>
 <!DOCTYPE html>
@@ -28,6 +25,7 @@ require_once("../database.php");
   </style>
 </head>
 <body>
+  <!-- nav bar with redirct links -->
   <div class="topnav">
     <b onclick="location.href='../index.php'">ROCA.sa</b>
     <a href="../logout.php">Logout</a>
@@ -48,6 +46,7 @@ require_once("../database.php");
                     </thead>
                     <tbody>
                     <?php
+                    //query to find jobs tied to this company
                      $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
                       $result = $conn->query($sql);
 
@@ -58,6 +57,7 @@ require_once("../database.php");
                       ?>
                       <tr>
                         <td>
+                          <!-- create a link tied to job post and display in the table as job title -->
                           <a href="../viewjob.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a>
                         </td>
                         <td>

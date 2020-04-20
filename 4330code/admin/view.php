@@ -1,6 +1,5 @@
 <?php
 
-//To Handle Session Variables on This Page
 session_start();
 
 if(empty($_SESSION['id_admin'])) {
@@ -8,12 +7,10 @@ if(empty($_SESSION['id_admin'])) {
   exit();
 }
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("../database.php");
 
 
-
+//query to join common field but allow access to differing fields to view individual posts
 $sql1 = "SELECT * FROM job_post INNER JOIN company ON job_post.id_company=company.id_company WHERE id_jobpost='$_GET[id]'";
 $result1 = $conn->query($sql1);
 if($result1->num_rows > 0)

@@ -12,7 +12,7 @@ require_once("../database.php");
 //if user Actually clicked Add Post Button
 if(isset($_POST)) {
 
-
+  //insert variables that were from the create job post
 	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, description, minimumsalary, maximumsalary, experience, qualification) VALUES (?,?, ?, ?, ?, ?, ?)");
 
 	$stmt->bind_param("issssss", $_SESSION['id_company'], $jobtitle, $description, $minimumsalary, $maximumsalary, $experience, $qualification);

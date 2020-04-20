@@ -4,7 +4,7 @@
 session_start();
 echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
 
-//If user Not logged in then redirect them back to homepage.
+//check if logged in. redirect if not.
 if(empty($_SESSION['id_company'])) {
   header("Location: ../index.php");
   exit();
@@ -36,6 +36,9 @@ require_once("../database.php");
 <h2><i>Recent Applications</i></h2>
 
             <?php
+
+            // triple inner join to connect info for users jobs post and applied job posts
+
              $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]'";
                   $result = $conn->query($sql);
 
@@ -43,11 +46,13 @@ require_once("../database.php");
                     while($row = $result->fetch_assoc())
                     {
             ?>
+            <!-- populate table with info from triple inner join -->
+            
             <div id="apps" class="attachment-block clearfix padding-2">
                 <h4><a href="user-application.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle'].' @ ('.$row['firstname'].' '.$row['lastname'].')'; ?></a></h4>
                   <div><?php echo $row['createdat']; ?></div>
                   <?php
-
+                  //status off applicants on job
                   if($row['status'] == 0) {
                     echo '<div class="pull-right"><strong>Pending</strong></div>';
                   } else if ($row['status'] == 1) {

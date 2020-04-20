@@ -9,7 +9,7 @@ if(empty($_SESSION['id_company'])) {
 }
 
 require_once("../database.php");
-
+//allows us to enter and save messages to the database for later access (reply/read)
 if(isset($_POST)) {
 	$to  = $_POST['to'];
 
@@ -17,7 +17,7 @@ if(isset($_POST)) {
 	$message = mysqli_real_escape_string($conn, $_POST['description']);
 
 	$sql = "INSERT INTO mailbox (id_fromuser, fromuser, id_touser, subject, message) VALUES ('$_SESSION[id_company]', 'company', '$to', '$subject', '$message')";
-
+//redirect us after message has be inserted into table
 	if($conn->query($sql) == TRUE) {
 		header("Location: mailbox.php");
 		exit();

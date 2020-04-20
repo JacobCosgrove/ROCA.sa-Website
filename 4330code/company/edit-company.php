@@ -36,7 +36,8 @@ require_once("../database.php");
           if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
           ?>
-
+              <!-- give recruiter fields to edit that will be used in update-company.php -->
+              
                 <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" value="<?php echo $row['name']; ?>" required><br>
 
                 <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" value="<?php echo $row['companyname']; ?>" required><br>
@@ -55,8 +56,6 @@ require_once("../database.php");
 
                 <input class="form-control input-lg" type="text" name="aboutme" placeholder="Brief info about your company" value="<?php echo $row['aboutme']; ?>"></input><br>
 
-                <!-- <label>Attach Company Logo</label>
-                <input type="file" name="image" value="<?php echo $row['logo']; ?>"><br> -->
 
                 <button type="submit" class="btn btn-flat btn-success">Update Profile</button>
 

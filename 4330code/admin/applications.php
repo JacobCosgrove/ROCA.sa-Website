@@ -49,6 +49,7 @@ require_once("../database.php");
                           <th>State</th>
                           <th>Download Resume</th>
                         </thead>
+                        <!-- table for displaying app info -->
                         <tbody>
                           <?php
                            $sql = "SELECT * FROM users";
@@ -73,6 +74,9 @@ require_once("../database.php");
                             </td>
                             <td><?php echo $row['city']; ?></td>
                             <td><?php echo $row['state']; ?></td>
+
+                            <!-- query to get resume from encrypted file -->
+                            
                             <?php if($row['resume'] != '') { ?>
                             <td><a href="../uploads/resume/<?php echo $row['resume']; ?>" download="<?php echo $row['firstname'].' Resume'; ?>"><i class="fa fa-file-pdf-o"></i></a></td>
                             <?php } else { ?>

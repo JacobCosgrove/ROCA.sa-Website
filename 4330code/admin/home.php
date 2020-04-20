@@ -2,6 +2,7 @@
 
 session_start();
 
+//check if admin is logged in
 if(empty($_SESSION['id_admin'])) {
   header("Location: index.php");
   exit();
