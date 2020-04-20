@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='home-style.css' />";
+echo "<link rel='stylesheet' type='text/css' href='login-style.css' />";
 
 if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   header("Location: index.php");
@@ -14,31 +16,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <meta charset="utf-8">
   </head>
   <body>
-    <header>
-      <ul>
-        <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
-
-          <li><a href="login.php">Login</a></li>
-          <li><a href="signup.php">Sign Up</a></li>
-
-          <?php } else {
-            if(isset($_SESSION['id_user'])) {
-          ?>
-
-          <li><a href="user/index.php">Dashboard</a></li>
-
-          <?php
-          }
-            else if(isset($_SESSION['id_company'])) {
-          ?>
-          <li><a href="company/index.php">Dashboard</a></li>
-          <?php } ?>
-          <li><a href="logout.php">Logout</a></li>
-          <?php } ?>
-          <li><a href="jobs.php">Jobs</a></li>
-
-      </ul>
-    </header>
+    
           <h1>CREATE YOUR PROFILE</h1>
           <form method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
 

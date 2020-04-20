@@ -1,11 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("img/brskyline.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
   }
-  
+
   .topnav {
     overflow: hidden;
     background-color: rgb(61, 61, 61);
@@ -13,7 +10,7 @@ body {
     color: #f2f2f2;
   }
 
-  .topnav a{
+  .topnav a {
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -21,8 +18,8 @@ body {
     text-decoration: none;
     font-size: 30px;
   }
-  
-  .topnav b{
+
+  .topnav b {
     float: left;
     color: #b8b3b3;
     text-align: center;
@@ -35,7 +32,7 @@ body {
     background-color: #ddd;
     color: black;
   }
-  
+
   .topnav a.active {
     background-color: #4CAF50;
     color: white;
@@ -43,12 +40,11 @@ body {
 
   .about {
     color: black;
-    margin-top: 600px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
   }
 
   .about h1 {
-    color: rgb(41, 12, 209);
     font-size: 40px;
     text-align: center;
   }
@@ -57,5 +53,17 @@ body {
     font-size: 17;
     border: 1px solid black;
     padding: 10px;
-    margin: 0px 80px; 
+    margin: 0px 80px;
+  }
+
+  footer {
+    width: 100%;
+    background-color: rgb(61, 61, 61);
+    padding: 2%;
+    color: #FFF;
+  }
+
+  b:hover {
+    background-color: #ddd;
+    color: black;
   }

@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='home-style.css' />";
+echo "<link rel='stylesheet' type='text/css' href='login-style.css' />";
 
 if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   header("Location: index.php");
@@ -12,13 +14,17 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
   </head>
   <body>
-      <!-- /.login-logo -->
-      
-        <p class="login-box-msg">User Login</p>
+    <div class= "topnav">
+      <div>
+        <b onclick="location.href='index.php'">ROCA.sa</b>
+      </div>
+    </div>
 
+    <h2>User Login</h2>
+
+      <div class="form">
         <form method="post" action="checkuser.php">
 
             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
@@ -31,7 +37,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
 
             <!-- /.col -->
-
-        </form>
+          </form>
+        </div>
     </body>
 </html>

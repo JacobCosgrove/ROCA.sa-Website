@@ -12,6 +12,13 @@ if(isset($_SESSION['id_admin'])) {
 <html>
 <head>
   <meta charset="utf-8">
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-size: 20px;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
     <p class="login-box-msg">Admin Login</p>

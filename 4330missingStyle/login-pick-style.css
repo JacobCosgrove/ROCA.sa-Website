@@ -1,0 +1,30 @@
+body {
+  /* background-color: lightgray; */
+  background-image: linear-gradient(to bottom right, gray, lightgray);
+}
+
+.container {
+  text-align: center;
+  padding-top: 5%;
+}
+
+.container h2 {
+  padding: 200px 5px;
+}
+
+button {
+  border: 5px solid #455075;
+  border-radius: 5px;
+  transition-duration: .5s;
+}
+
+button:hover {
+  background-color: #5771c9;
+  color: white;
+}
+
+p {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 20px;
+}
