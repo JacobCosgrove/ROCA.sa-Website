@@ -13,7 +13,7 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>View Job | LA Jobs</title>
+  <title>View Job | ROCA.sa</title>
 
   <!-- DataTables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
@@ -26,7 +26,7 @@ require_once("../database.php");
 
     <!-- Logo -->
     <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
+      <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
 
   </header>
@@ -42,13 +42,6 @@ require_once("../database.php");
 
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li><a href="create-job-post.php">Create Job Post</a></li>
-                  <li class="active"><a href="my-job-post.php"> My Job Post</a></li>
-                  <li><a href="job-applications.php"> Job Application</a></li>
-                  <li><a href="mailbox.php"> Mailbox</a></li>
-                  <li><a href="resume-database.php"> Resume Database</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
                 </ul>
 
               <?php

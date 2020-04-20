@@ -22,7 +22,7 @@ require_once("../database.php");
 
   <header class="main-header">
     <a href="index.php">
-      <span><b>LA Jobs</b></span>
+      <span><b>ROCA.sa</b></span>
     </a>
 
   </header>
@@ -34,13 +34,6 @@ require_once("../database.php");
                 <h3>Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
                 <ul>
                   <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li><a href="create-job-post.php"> Create Job Post</a></li>
-                  <li><a href="my-job-post.php"> My Job Post</a></li>
-                  <li class="active"><a href="job-applications.php"> Job Application</a></li>
-                  <li><a href="mailbox.php"> Mailbox</a></li>
-                  <li><a href="resume-database.php"> Resume Database</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
                 </ul>
             <h2><i>Recent Applications</i></h2>
 

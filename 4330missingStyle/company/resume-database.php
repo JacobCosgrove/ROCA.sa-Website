@@ -28,7 +28,7 @@ require_once("../database.php");
 
     <!-- Logo -->
     <a href="index.php">
-      <span><b>LA Jobs</b></span>
+      <span><b>ROCA.sa</b></span>
     </a>
   </header>
 
@@ -46,13 +46,6 @@ require_once("../database.php");
 
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li><a href="create-job-post.php"> Create Job Post</a></li>
-                  <li><a href="my-job-post.php"> My Job Post</a></li>
-                  <li><a href="job-applications.php"> Job Application</a></li>
-                  <li><a href="mailbox.php"> Mailbox</a></li>
-                  <li class="active"><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
 
             <h2><i>Applicant Database</i></h2>

@@ -16,7 +16,7 @@ require_once("../database.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Create Job Post | LA Jobs</title>
+  <title>Create Job Post | ROCA.sa</title>
 
   <script src="../js/tinymce/tinymce.min.js"></script>
   <script>tinymce.init({ selector:'#description', height: 300 });</script>
@@ -28,7 +28,7 @@ require_once("../database.php");
 
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg">
-      <span class="logo-lg"><b>LA Jobs</b></span>
+      <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
   </header>
 
@@ -40,13 +40,6 @@ require_once("../database.php");
 
                 <ul>
                   <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li class="active"><a href="create-job-post.php"> Create Job Post</a></li>
-                  <li><a href="my-job-post.php"> My Job Post</a></li>
-                  <li><a href="job-applications.php"> Job Application</a></li>
-                  <li><a href="mailbox.php"> Mailbox</a></li>
-                  <li><a href="resume-database.php"> Resume Database</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
                 </ul>
             <h2><i>Create Job Post</i></h2>
               <form method="post" action="addpost.php">
@@ -55,11 +48,11 @@ require_once("../database.php");
 
                     <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
 
-                    <input type="number" class="form-control  input-lg" id="minimumsalary" min="1000" autocomplete="off" name="minimumsalary" placeholder="Minimum Salary" required="">
+                    <input type="number" class="form-control  input-lg" id="minimumsalary" min="0" autocomplete="off" name="minimumsalary" placeholder="Minimum Salary" required="">
 
-                    <input type="number" class="form-control  input-lg" id="maximumsalary" name="maximumsalary" placeholder="Maximum Salary" required="">
+                    <input type="number" class="form-control  input-lg" id="maximumsalary" min= "1000" name="maximumsalary" placeholder="Maximum Salary" required="">
 
-                <input type="number" class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
+                <input type="number" class="form-control  input-lg" id="experience"  min= "0" max= "5" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
 
                     <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
 

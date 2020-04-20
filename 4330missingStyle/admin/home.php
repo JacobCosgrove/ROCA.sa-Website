@@ -19,7 +19,7 @@ require_once("../database.php");
   <header>
 
     <a href="index.php">
-      <span class="logo-lg"><b>LA Jobs</b></span>
+      <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
 
   </header>
@@ -30,7 +30,6 @@ require_once("../database.php");
                 <h3 class="box-title">Welcome <b>Admin</b></h3>
 
                 <ul class="nav nav-pills nav-stacked">
-                  <li class="active"><a href="home.php"> Home</a></li>
                   <li><a href="active-jobs.php"> Active Jobs</a></li>
                   <li><a href="applications.php"> Applicants</a></li>
                   <li><a href="companies.php"> Companies</a></li>

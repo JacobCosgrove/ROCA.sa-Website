@@ -15,7 +15,7 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Company Dashboard | LA Jobs</title>
+  <title>Company Dashboard | ROCA.sa</title>
 </head>
 <body>
 <div>
@@ -23,8 +23,8 @@ require_once("../database.php");
   <header>
 
     <!-- Logo -->
-    <a href="index.php">
-      <span><b>LA Jobs</b></span>
+    <a href="../index.php">
+      <span><b>ROCA.sa</b></span>
     </a>
 
   </header>
@@ -37,7 +37,6 @@ require_once("../database.php");
                 <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
 
                 <ul class="nav nav-pills nav-stacked">
-                  <li class="active"><a href="index.php"> Dashboard</a></li>
                   <li><a href="edit-company.php"> My Company</a></li>
                   <li><a href="create-job-post.php"> Create Job Post</a></li>
                   <li><a href="my-job-post.php"> My Job Post</a></li>

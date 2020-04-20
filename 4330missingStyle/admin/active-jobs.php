@@ -12,7 +12,7 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Applicant Details | LA Jobs</title>
+  <title>Applicant Details | ROCA.sa</title>
 
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
@@ -22,7 +22,7 @@ require_once("../database.php");
 
     <!-- Logo -->
     <a href="index.php" class="logo logo-bg-purple">
-      <span class="logo-lg"><b>LA Jobs</b></span>
+      <span class="logo-lg"><b>ROCA.sa</b></span>
     </a>
   </header>
   <div>
@@ -32,10 +32,7 @@ require_once("../database.php");
               <div>
                 <ul>
                   <li><a href="home.php"> Home</a></li>
-                  <li class="active"><a href="active-jobs.php"> Active Jobs</a></li>
-                  <li><a href="applications.php"> Applicants</a></li>
-                  <li><a href="companies.php"> Companies</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
+                  
 
 
                   <h3>Active Job Posts</h3>

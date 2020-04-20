@@ -111,13 +111,6 @@ if($result->num_rows >  0 ){
 
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="index.php"> Dashboard</a></li>
-                  <li><a href="edit-company.php"> My Company</a></li>
-                  <li><a href="create-job-post.php"> Create Job Post</a></li>
-                  <li><a href="my-job-post.php"> My Job Post</a></li>
-                  <li><a href="job-applications.php"> Job Application</a></li>
-                  <li class="active"><a href="mailbox.php"> Mailbox</a></li>
-                  <li><a href="resume-database.php"> Resume Database</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
                 </ul>
 
           <div class="col-md-9 bg-white padding-2">

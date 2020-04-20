@@ -12,7 +12,7 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Applicant Details | LA Jobs</title>
+  <title>Applicant Details | ROCA.sa</title>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 <body>
@@ -22,7 +22,7 @@ require_once("../database.php");
 
     <!-- Logo -->
     <a href="index.php">
-      <span><b>LA Jobs</b></span>
+      <span><b>ROCA.sa</b></span>
     </a>
   </header>
 <body>
@@ -34,10 +34,6 @@ require_once("../database.php");
 
                 <ul>
                   <li><a href="home.php"> Home</a></li>
-                  <li><a href="active-jobs.php"> Active Jobs</a></li>
-                  <li><a href="applications.php"> Applicants</a></li>
-                  <li class="active"><a href="companies.php"> Companies</a></li>
-                  <li><a href="../logout.php"> Logout</a></li>
                 </ul>
 
 
@@ -78,11 +74,11 @@ require_once("../database.php");
                                  echo "Activated";
                                } else if($row['active'] == '2') {
                                  ?>
-                                 <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
+                                 <a href="reject.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve.php?id=<?php echo $row['id_company']; ?>">Approve</a>
                                  <?php
                                } else if ($row['active'] == '3') {
                                  ?>
-                                   <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
+                                   <a href="approve.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
                                  <?php
                                } else if($row['active'] == '0') {
                                  echo "Rejected";
