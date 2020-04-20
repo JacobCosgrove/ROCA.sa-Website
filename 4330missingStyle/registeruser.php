@@ -16,8 +16,16 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <meta charset="utf-8">
   </head>
   <body>
-    
-          <h1>CREATE YOUR PROFILE</h1>
+    <div class= "topnav">
+      <div>
+        <b onclick="location.href='index.php'">ROCA.sa</b>
+      </div>
+    </div>
+
+    <h2>Create User Profile</h2>
+
+      <div class="form">
+
           <form method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
 
                 <input  type="text" id="fname" name="fname" placeholder="First Name *" required><br>
@@ -26,36 +34,32 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
                 <input  type="text" id="email" name="email" placeholder="Email *" required><br>
 
-                <textarea  rows="4" id="aboutme" name="aboutme" placeholder="Brief intro about yourself *" required></textarea><br>
-
-                <label>Date Of Birth</label>
-                <input  type="date" id="dob" min="1960-01-01" max="1999-01-31" name="dob" placeholder="Date Of Birth"><br>
-
-                <input  type="text" id="qualification" name="qualification" placeholder="Highest Qualification"><br>
-
                 <input  type="password" id="password" name="password" placeholder="Password *" required><br>
 
                 <input  type="password" id="cpassword" name="cpassword" placeholder="Confirm Password *" required><br>
 
+                <input  type="text" id="aboutme" name="aboutme" placeholder="Brief intro about yourself *" required></input><br>
+
+                <label>Date Of Birth</label>
+                <input  type="date" id="dob" min="1960-01-01" max="1999-01-31" name="dob" placeholder="Date Of Birth"><br>
+
                 <input  type="text" id="contactno" name="contactno" minlength="10" maxlength="10" onkeypress="return validatePhone(event);" placeholder="Phone Number"><br>
 
-                <textarea  rows="4" id="address" name="address" placeholder="Address"></textarea><br>
+                <input  type="text" id="address" name="address" placeholder="Address"></input><br>
 
                 <input  type="text" id="city" name="city" placeholder="City"><br>
 
                 <input  type="text" id="state" name="state" placeholder="State"><br>
 
-                <textarea  rows="4" id="skills" name="skills" placeholder="Enter Skills"></textarea><br>
+                <input  type="text" id="skills" name="skills" placeholder="Enter Skills"></input><br>
 
-                <input  type="text" id="stream" name="stream" placeholder="Stream"><br>
+                <input  type="text" id="qualification" name="qualification" placeholder="Highest Qualification"><br>
 
                 <label style="color: red;">File Format PDF Only!</label>
 
                 <input type="file" name="resume" required><br>
 
-                                <label><input type="checkbox"> I accept terms & conditions</label><br>
-
-                                <button name="reg_user">Register</button><br>
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
 
                               <?php
                               //If User already registered with this email then show error message.
@@ -73,5 +77,8 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                                   <label style="color: red;"><?php echo $_SESSION['uploadError']; ?></label>
 
                               <?php unset($_SESSION['uploadError']); } ?>
-</body>
+
+      </form>
+    </div>
+  </body>
 </html>
