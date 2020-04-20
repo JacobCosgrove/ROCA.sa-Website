@@ -35,14 +35,14 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
     <div class="container">
       <div class="row">
-        <button class="col-md-6" onclick="location.href='registeruser.php'">
+        <button class="col-md-6" id="bigbutton" onclick="location.href='registeruser.php'">
           <h2>User Register</h2>
         </button>
-        <button class="col-md-6" onclick="location.href='registercompany.php'">
+        <button class="col-md-6" id="bigbutton" onclick="location.href='registercompany.php'">
           <h2>Company Register</h2>
         </button>
       </div>
     </div>
-    
+
   </body>
 </html>

@@ -27,7 +27,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       <div class= "topnav">
         <b onclick="location.href='index.php'">ROCA.sa</b>
       </div>
-      
+
       <ul>
         <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
 
@@ -59,10 +59,10 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
   <div class="container">
     <div class="row">
-      <button class="col-md-6" onclick="location.href='user-login.php'">
+      <button class="col-md-6" id="bigbutton" onclick="location.href='user-login.php'">
         <h2>User Login</h2>
       </button>
-      <button class="col-md-6" onclick="location.href='company-login.php'">
+      <button class="col-md-6" id="bigbutton" onclick="location.href='company-login.php'">
         <h2>Company Login</h2>
       </button>
     </div>

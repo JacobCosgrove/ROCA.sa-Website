@@ -2,6 +2,8 @@
 
 //To Handle Session Variables on This Page
 session_start();
+echo "<link rel='stylesheet' type='text/css' href='../home-style.css' />";
+echo "<link rel='stylesheet' type='text/css' href='../login-style.css' />";
 
 //If user Not logged in then redirect them back to homepage.
 if(empty($_SESSION['id_company'])) {
@@ -15,89 +17,64 @@ require_once("../database.php");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Edit Company Details | ROCA.sa</title>
-
+  <title>Edit Company | ROCA.sa</title>
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
+<body>
+  <div class= "topnav">
+    <div>
+      <b onclick="location.href='index.php'">ROCA.sa</b>
+    </div>
+  </div>
 
-  <header>
+  <h2>Edit Company Profile</h2>
+    <div class="form">
+        <form action="update-company.php" method="post" enctype="multipart/form-data">
+          <?php
+          $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
+          $result = $conn->query($sql);
 
-    <a href="index.php">
+          if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+          ?>
 
-      <span class="logo-lg"><b>ROCA.sa</b></span>
-    </a>
+                <input class="form-control input-lg" type="text" name="name" placeholder="Full Name" value="<?php echo $row['name']; ?>" required><br>
 
-  </header>
+                <input class="form-control input-lg" type="text" name="companyname" placeholder="Company Name" value="<?php echo $row['companyname']; ?>" required><br>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
+                <input class="form-control input-lg" type="text" name="website" placeholder="Website" value="<?php echo $row['website']; ?>"><br>
 
-    <section id="candidates" class="content-header">
+                <input class="form-control input-lg" type="text" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required><br>
 
-                <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
+                <input class="form-control input-lg" type="text" name="contactno" placeholder="Phone Number" value="<?php echo $row['contactno']; ?>" minlength="10" maxlength="10" autocomplete="off" onkeypress="return validatePhone(event);" required><br>
 
-                <ul class="nav nav-pills nav-stacked">
-                  <li><a href="index.php"> Dashboard</a></li>
-                </ul>
+                <input class="form-control input-lg" type="text" id="country" name="country" placeholder="Country" value="<?php echo $row['country']; ?>"><br>
 
-            <h2><i>My Company</i></h2>
-            <p>In this section you can change your company details</p>
-              <form action="update-company.php" method="post" enctype="multipart/form-data">
+                <input class="form-control input-lg" type="text" id="city" name="city" placeholder="City" value="<?php echo $row['city']; ?>"><br>
+
+                <input class="form-control input-lg" type="text" id="state" name="state" placeholder="State" value="<?php echo $row['state']; ?>"><br>
+
+                <input class="form-control input-lg" type="text" name="aboutme" placeholder="Brief info about your company" value="<?php echo $row['aboutme']; ?>"></input><br>
+
+                <label>Attach Company Logo</label>
+                <input type="file" name="image" value="<?php echo $row['logo']; ?>"><br>
+
+                <button type="submit" class="btn btn-flat btn-success">Update Profile</button>
+
                 <?php
-                $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
-                $result = $conn->query($sql);
-
-                if($result->num_rows > 0) {
-                  while($row = $result->fetch_assoc()) {
-                ?>
-                     <label>Company Name</label>
-                    <input type="text" class="form-control input-lg" name="companyname" value="<?php echo $row['companyname']; ?>" required="">
-
-                     <label>Website</label>
-                    <input type="text" class="form-control input-lg" name="website" value="<?php echo $row['website']; ?>" required="">
-
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control input-lg" id="email" placeholder="Email" value="<?php echo $row['email']; ?>" readonly>
-
-                    <label>About Me</label>
-                    <textarea class="form-control input-lg" rows="4" name="aboutme"><?php echo $row['aboutme']; ?></textarea>
-
-                    <button type="submit" class="btn btn-flat btn-success">Update Company Profile</button>
-                    <label for="contactno">Contact Number</label>
-                    <input type="text" class="form-control input-lg" id="contactno" name="contactno" placeholder="Contact Number" value="<?php echo $row['contactno']; ?>">
-
-                    <label for="city">City</label>
-                    <input type="text" class="form-control input-lg" id="city" name="city" value="<?php echo $row['city']; ?>" placeholder="city">
-
-                    <label for="state">State</label>
-                    <input type="text" class="form-control input-lg" id="state" name="state" placeholder="state" value="<?php echo $row['state']; ?>">
-
-                    <label>Change Company Logo</label>
-                    <input type="file" name="image" class="btn btn-default">
-                    <?php if($row['logo'] != "") { ?>
-                    <img src="../uploads/logo/<?php echo $row['logo']; ?>" class="img-responsive" style="max-height: 200px; max-width: 200px;">
-                    <?php } ?>
-
-                    <?php
-                    }
                   }
-                ?>
+                }
+              ?>
               </form>
+
             <?php if(isset($_SESSION['uploadError'])) { ?>
 
                 <?php echo $_SESSION['uploadError']; ?>
 
             <?php unset($_SESSION['uploadError']); } ?>
 
-    </section>
 
 
-
-  </div>
-  <!-- /.content-wrapper -->
-</div>
-<!-- ./wrapper -->
+        </div>
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

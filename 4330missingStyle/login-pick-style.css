@@ -3,19 +3,24 @@ body {
   background-image: linear-gradient(to bottom right, gray, lightgray);
 }
 
-.container {
+.row {
   padding-top: 2%;
 }
 
-.container h2 {
+.row h2 {
   text-align: center;
-  padding: 200px 5px;
+  padding: 50px 5px;
+}
+
+.container #bigbutton {
+  text-align: center;
+  padding: 150px 5px;
 }
 
 button {
   border: 5px solid #455075;
   border-radius: 5px;
-  transition-duration: .5s;
+  transition-duration: .4s;
 }
 
 button:hover {
